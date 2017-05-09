@@ -1,0 +1,15 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "g++",
+    "isShellCommand": true,
+    // Explanations for compiler options:
+    // -g: Produce debugging information
+    // -o: Output target
+    // -I: Include directory
+    // -Wall: Display (almost) all warnings
+    // -Wconversion: Display conversion warnings
+    "args": ["-std=c++11", "-g", "-o", "bin/main.exe", "-I", "include/", "-Wall", "-Wconversion", "src/main.cpp", "src/game.cpp", "src/board.cpp", "src/piece.cpp"],
+    "showOutput": "always"
+}
