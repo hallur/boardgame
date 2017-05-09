@@ -7,7 +7,7 @@
 
 class Board {
 public:
-    explicit Board();
+    explicit Board(const int& width, const int& height);
     virtual ~Board();
 
     Piece* getPiece(const int& x, const int& y) const;
@@ -17,12 +17,10 @@ public:
 
     friend std::ostream& operator<<(std::ostream& os, const Board& rhs);
 
-protected:
-    int getWidth() const;
-    int getHeight() const;
-
 private:
-    std::vector<std::vector<Piece*> > pieces_;
+    Piece*** pieces_;
+    int width_;
+    int height_;
 };
 
 #endif

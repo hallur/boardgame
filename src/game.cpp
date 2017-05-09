@@ -1,19 +1,19 @@
 #include "game.h"
 
-Game::Game() : player1_("Player 1"), player2_("Player 2") {
-    initialize();
+Game::Game() : board_(Board(3, 3)), player1_("Player 1"), player2_("Player 2") {
+    currentPlayer_ = &player1_;
 }
 
 Game::~Game() {}
 
 void Game::initialize() {
     currentPlayer_ = &player1_;
-    board_ = Board();
+    board_ = Board(3, 3);
 }
 
 void Game::playTurn() {
-    /*Piece* from = getPieceFromUser("From [x, y]: ");
-    Piece* to = getPieceFromUser("To [x, y]: ");*/
+    Piece* from = getPieceFromUser("From [x, y]: ");
+    Piece* to = getPieceFromUser("To [x, y]: ");
 }
 
 std::string* Game::getWinner() const {
