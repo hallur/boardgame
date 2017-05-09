@@ -13,7 +13,7 @@ public:
     Piece* getPiece(const int& x, const int& y) const;
 
     virtual bool move(Piece* from, Piece* to);
-    virtual std::vector<std::pair<Piece*, Piece*> > getLegalMoves(Piece* piece) const;
+    virtual std::vector<Piece*> getLegalMoves(Piece* piece) const;
 
     friend std::ostream& operator<<(std::ostream& os, const Board& rhs);
 

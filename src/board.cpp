@@ -49,8 +49,8 @@ bool Board::move(Piece* from, Piece* to) {
     return true;
 }
 
-std::vector<std::pair<Piece*, Piece*> > Board::getLegalMoves(Piece* piece) const {
-    return std::vector<std::pair<Piece*, Piece*> >();
+std::vector<Piece*> Board::getLegalMoves(Piece* piece) const {
+    return std::vector<Piece*>();
 }
 
 std::ostream& operator<<(std::ostream& os, const Board& rhs) {
