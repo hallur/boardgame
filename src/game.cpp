@@ -6,10 +6,10 @@ boardgame::Game::Game() : board_(Board(3, 3)), player1_("Player 1"), player2_("P
 
 boardgame::Game::~Game() {}
 
-void boardgame::Game::initialize() {
+/*void boardgame::Game::initialize() {
     currentPlayer_ = &player1_;
     board_ = Board(3, 3);
-}
+}*/
 
 void boardgame::Game::playTurn() {
 

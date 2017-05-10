@@ -12,7 +12,7 @@ public:
     explicit Game();
     virtual ~Game();
 
-    virtual void initialize();
+    //virtual void initialize();
     virtual void playTurn();
     virtual std::string* getWinner() const;
     virtual void printBoard() const;

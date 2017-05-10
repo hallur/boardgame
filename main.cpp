@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv) {
     boardgame::Game game;
-    game.initialize();
+    //game.initialize();
 
     while (!game.getWinner()) {
         game.printBoard();
