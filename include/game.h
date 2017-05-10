@@ -7,21 +7,41 @@
 
 namespace boardgame {
 
+/*! \class Game
+*   \breif base class for all games, pure virtual
+*
+*   Class that holds everything a game should need, the players involved, maximum number of moves, the game board, whose turn it is etc.
+*/
 class Game {
 public:
-    explicit Game(Player* player1, Player* player2, int maxNumberOfMoves, Board board = Board());
+    // TODO
+    explicit Game(Player* player1, Player* player2, int maxNumberOfMoves = -1, Board board = Board());
+    /*! \breif game destructor
+    */
     virtual ~Game();
-
+    /*! \breif Play turn
+    *
+    *   ...
+    */
     virtual void playTurn();
+    /*! \breif Get winner
+    *
+    *   checks if there is a winner, if there is one return the winner if ther in no winner yet returns nullPtr;
+    /   if there is a tie TODO!
+    */
     virtual Player* getWinner() const;
+    /*! \breif Pring board
+    *
+    *   Prints the board in the current state.
+    */
     virtual void printBoard() const;
 
 protected:
-    Player* player1_;
-    Player* player2_;
-    const int maxNumberOfMoves_;
-    Board board_;
-    Player* currentPlayer_;
+    Player* player1_; //!< Player one
+    Player* player2_; //!< Player two
+    const int maxNumberOfMoves_; //!< Maximum number of moves (before tie?), -1 if there is no maximum number of moves
+    Board board_; //!< The game board
+    Player* currentPlayer_; //!< Current player / whose turn it is
 };
 
 }
