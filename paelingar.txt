@@ -1,0 +1,70 @@
+Game
+    variables:
+        Board board_
+        Player player1_
+        Player player2_
+        Player* currentPlayer_
+    functions:
+        void initialize()
+        Player* getWinner()
+        void printBoard()
+        void playTurn()
+
+Board
+    variables:
+        int width_
+        int height_
+        Piece*** pieces_
+    functions:
+        void initialize()
+        vector<Location> getLegalMovesFor(Location location)
+        bool movePiece(Location from, Location to)
+        Piece* getPieceAt(Location location)
+
+Piece
+    variables:
+        char marker_
+        Player* player_
+        vector<MoveRule> moveRules_
+    functions:
+
+Player
+    variables:
+        string name_
+    functions:
+        void playTurn()
+
+struct Location {
+    int x;
+    int y;
+};
+
+enum MoveRuleOption = { continuous, kill, moveOrKill };
+struct MoveRule {
+    int x;
+    int y;
+    vector<MoveRuleOptions> options;
+};
+
+vector<Location> getLegalMovesFor(Location location) {
+    vector<Location> legalMoves;
+    Piece* piece = getPieceAt(location.x, location.y);
+    if (piece) {
+        vector<MoveRule> moveRules = piece->getMoveRules();
+        for (auto moveRule : moveRules) {
+            int tmpX = location.x;
+            int tmpY = location.y;
+            bool isContinuous = (std::find(moveRule.options.begin(), moveRule.options.end(), MoveRuleOption::continuous) != moveRule.options.end());
+            do {
+                tmpX += moveRule.x;
+                tmpY += moveRule.y;
+                if (legal(tmpX, tmpY)) { // todo: implement condition
+                    legalMoves.push_back(Location(tmpX, tmpY))
+                } else {
+                    break;
+                }
+            } while (isContinuous);
+        }   
+    }
+    return legalMoves;
+}
