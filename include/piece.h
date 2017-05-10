@@ -23,6 +23,8 @@ private:
     std::vector<std::pair<int, int> > killMoves_;
 };
 
+std::ostream& operator<<(std::ostream& os, const Piece& rhs);
+
 }
 
 #endif

@@ -25,6 +25,8 @@ private:
     int height_;
 };
 
+std::ostream& operator<<(std::ostream& os, const Board& rhs);
+
 }
 
 #endif
