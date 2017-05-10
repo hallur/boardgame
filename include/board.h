@@ -10,6 +10,7 @@ namespace boardgame {
 struct Location {
     int x;
     int y;
+    bool operator==(const Location& rhs) { return (x == rhs.x && y == rhs.y); }
 };
 
 class Board {
@@ -19,9 +20,8 @@ public:
     virtual ~Board();
 
     Piece* getPieceAt(Location location) const;
-
-    bool movePiece(Location from, Location to);
-    virtual std::vector<Piece*> getLegalMoves(Piece* piece) const;
+    void movePiece(Location from, Location to);
+    std::vector<Location> getLegalMovesFor(Location) const;
 
     friend std::ostream& operator<<(std::ostream& os, const Board& rhs);
 

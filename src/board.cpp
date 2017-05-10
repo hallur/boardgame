@@ -1,6 +1,8 @@
 #include "board.h"
-#include <string>
+
+#include <algorithm>
 #include <iostream>
+#include <string>
 
 boardgame::Board::Board() : Board(4, 4) {}
 
@@ -24,27 +26,70 @@ boardgame::Board::~Board() {
     }
 }
 
-boardgame::Piece* boardgame::Board::getPieceAt(Location location) const {
+boardgame::Piece* boardgame::Board::getPieceAt(boardgame::Location location) const {
     if ((location.x < 0 || location.x >= width_) || (location.y < 0 || location.y >= height_)) {
         throw std::out_of_range("argument 'location' out of bounds");
     }
     return pieces_[location.y][location.x];
 }
 
-bool boardgame::Board::movePiece(Location from, Location to) {
-    Piece* fromPiece = getPieceAt(from);
-    if (!fromPiece)
-        return false;
-    Piece* toPiece = getPieceAt(to);
-    if (toPiece)
+void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location to) {
+    std::vector<boardgame::Location> legalMoves;
+    try {
+        legalMoves = getLegalMovesFor(from);
+    } catch (std::out_of_range e) {
+        throw std::out_of_range("argument 'from' out of bounds");
+    }
+    if (std::find(legalMoves.begin(), legalMoves.end(), to) == legalMoves.end()) {
+        throw "illegal move";
+    }
+    Piece* fromPiece = getPieceAt(from); // no need to try-catch this
+    Piece* toPiece = nullptr;
+    try {
+        toPiece = getPieceAt(to);
+    } catch(std::out_of_range e) {
+        throw std::out_of_range("argument 'from' out of bounds");
+    }
+    if (toPiece) {
         delete toPiece;
+    }
     toPiece = fromPiece;
     fromPiece = nullptr;
-    return true;
 }
 
-std::vector<boardgame::Piece*> boardgame::Board::getLegalMoves(Piece* piece) const {
-    return std::vector<Piece*>();
+std::vector<boardgame::Location> boardgame::Board::getLegalMovesFor(boardgame::Location location) const {
+    std::vector<boardgame::Location> legalMoves;
+    boardgame::Piece* piece = nullptr;
+    try {
+        piece = getPieceAt(location);
+    } catch (std::out_of_range e) {
+        throw e;
+    }
+    if (piece) {
+        std::vector<MoveRule> moveRules = piece->getMoveRules();
+        for (auto moveRule : moveRules) {
+            boardgame::Location tmpLocation = location;
+            do {
+                tmpLocation.x += moveRule.xDiff;
+                tmpLocation.y += moveRule.yDiff;
+                Piece* targetPiece = nullptr;
+                try {
+                    targetPiece = getPieceAt(tmpLocation);
+                } catch (std::out_of_range e) {
+                    break;
+                }
+                if (!targetPiece) {
+                    legalMoves.push_back(tmpLocation);
+                } else {
+                    if (moveRule.kill && targetPiece->getPlayer() != piece->getPlayer()) {
+                        legalMoves.push_back(tmpLocation);
+                    }
+                    break;
+                }
+            } while (moveRule.continuous);
+        }   
+    }
+    return legalMoves;
 }
 
 std::ostream& boardgame::operator<<(std::ostream& os, const boardgame::Board& rhs) {
