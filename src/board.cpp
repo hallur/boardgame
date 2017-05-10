@@ -1,4 +1,5 @@
 #include "board.h"
+
 #include <string>
 #include <iostream>
 
@@ -43,8 +44,8 @@ bool boardgame::Board::movePiece(Location from, Location to) {
     return true;
 }
 
-std::vector<boardgame::Piece*> boardgame::Board::getLegalMoves(Piece* piece) const {
-    return std::vector<Piece*>();
+std::vector<boardgame::Location> boardgame::Board::getLegalMovesFor(boardgame::Location location) const {
+    return std::vector<Location>();
 }
 
 std::ostream& boardgame::operator<<(std::ostream& os, const boardgame::Board& rhs) {
