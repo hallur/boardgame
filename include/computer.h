@@ -6,7 +6,7 @@
 
 namespace boardgame {
 
-enum class Difficulty { easy, medium, hard };
+enum class Difficulty { random, easy, medium, hard };
 
 class Computer : public Player {
 public:

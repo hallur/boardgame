@@ -9,8 +9,7 @@ namespace boardgame {
 
 class Game {
 public:
-    explicit Game(Player* player1, Player* player2, Board board);
-    explicit Game(Player* player1, Player* player2);
+    explicit Game(Player* player1, Player* player2, int maxNumberOfMoves, Board board = Board());
     virtual ~Game();
 
     //virtual void initialize();
@@ -20,10 +19,10 @@ public:
 
 protected:
     //Piece* getPieceFromUser(const std::string& message) const;
-
-    Board board_;
     Player* player1_;
     Player* player2_;
+    const int maxNumberOfMoves_;
+    Board board_;
     Player* currentPlayer_;
 };
 

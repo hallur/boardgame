@@ -17,6 +17,7 @@ struct MoveRule {
     int yDiff; //!< difference weetween current y possition and y possition after movement
     bool continuous; //!< can the piece move continuously, ex. bishop in chess 
     bool kill; //!< is this a killing move
+    bool friendlyFire; //!< allows a peace to be killed by another peace with same owner
 };
 
 /*! \class Piece

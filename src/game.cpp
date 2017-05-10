@@ -1,10 +1,8 @@
 #include "game.h"
 
-boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2, boardgame::Board board) : board_(board), player1_(player1), player2_(player2) {
+boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2, int maxNumberOfMoves, boardgame::Board board) : player1_(player1), player2_(player2), maxNumberOfMoves_(maxNumberOfMoves), board_(board) {
     currentPlayer_ = player1_;
 }
-
-boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2) : Game(player1, player2, Board()) {}
 
 boardgame::Game::~Game() {}
 
