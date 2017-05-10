@@ -1,8 +1,10 @@
 #include "game.h"
 
-boardgame::Game::Game() : board_(Board(3, 3)), player1_("Player 1"), player2_("Player 2") {
-    currentPlayer_ = &player1_;
+boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2, boardgame::Board board) : board_(board), player1_(player1), player2_(player2) {
+    currentPlayer_ = player1_;
 }
+
+boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2) : Game(player1, player2, Board()) {}
 
 boardgame::Game::~Game() {}
 
@@ -15,7 +17,7 @@ void boardgame::Game::playTurn() {
 
 }
 
-std::string* boardgame::Game::getWinner() const {
+boardgame::Player* boardgame::Game::getWinner() const {
     return nullptr;
 }
 
