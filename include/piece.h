@@ -13,8 +13,8 @@ namespace boardgame {
 *   used to define one way how a peace can move.
 */
 struct MoveRule {
-    int x; //!< difference weetween current x possition and x possition after movement
-    int y; //!< difference weetween current y possition and y possition after movement
+    int xDiff; //!< difference weetween current x possition and x possition after movement
+    int yDiff; //!< difference weetween current y possition and y possition after movement
     bool continuous; //!< can the piece move continuously, ex. bishop in chess 
     bool kill; //!< is this a killing move
 };
