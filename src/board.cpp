@@ -31,13 +31,15 @@ boardgame::Piece* boardgame::Board::getPieceAt(Location location) const {
     return pieces_[location.y][location.x];
 }
 
-bool boardgame::Board::move(Piece* from, Piece* to) {
-    if (!from)
+bool boardgame::Board::movePiece(Location from, Location to) {
+    Piece* fromPiece = getPieceAt(from);
+    if (!fromPiece)
         return false;
-    if (to)
-        delete to;
-    to = from;
-    from = nullptr;
+    Piece* toPiece = getPieceAt(to);
+    if (toPiece)
+        delete toPiece;
+    toPiece = fromPiece;
+    fromPiece = nullptr;
     return true;
 }
 
