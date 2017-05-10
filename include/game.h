@@ -18,7 +18,7 @@ public:
     virtual void printBoard() const;
 
 protected:
-    Piece* getPieceFromUser(const std::string& message) const;
+    //Piece* getPieceFromUser(const std::string& message) const;
 
     Board board_;
     std::string player1_;

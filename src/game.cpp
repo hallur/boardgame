@@ -12,8 +12,7 @@ void boardgame::Game::initialize() {
 }
 
 void boardgame::Game::playTurn() {
-    /*Piece* from = getPieceFromUser("From [x, y]: ");
-    Piece* to = getPieceFromUser("To [x, y]: ");*/
+
 }
 
 std::string* boardgame::Game::getWinner() const {
@@ -24,7 +23,7 @@ void boardgame::Game::printBoard() const {
     std::cout << board_;
 }
 
-boardgame::Piece* boardgame::Game::getPieceFromUser(const std::string& message) const {
+/*boardgame::Piece* boardgame::Game::getPieceFromUser(const std::string& message) const {
     while (true) {
         int x, y;
         std::cout << message;
@@ -36,4 +35,4 @@ boardgame::Piece* boardgame::Game::getPieceFromUser(const std::string& message) 
             std::cout << "Selection out of bounds. Try again.";
         }
     }
-}
+}*/
