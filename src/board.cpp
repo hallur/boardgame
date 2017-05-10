@@ -2,10 +2,9 @@
 #include <string>
 #include <iostream>
 
-boardgame::Board::Board(const int& width, const int &height) {
-    width_ = width;
-    height_ = height;
+boardgame::Board::Board() : Board(4, 4) {}
 
+boardgame::Board::Board(const int& width, const int &height) : width_(width), height_(height) {
     pieces_ = new Piece**[height];
     for (int y = 0; y < height; y++) {
         pieces_[y] = new Piece*[width];

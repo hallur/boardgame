@@ -9,6 +9,7 @@ namespace boardgame {
 
 class Board {
 public:
+    explicit Board();
     explicit Board(const int& width, const int& height);
     virtual ~Board();
 
