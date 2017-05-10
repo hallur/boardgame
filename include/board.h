@@ -5,6 +5,8 @@
 #include <vector>
 #include <utility>
 
+namespace boardgame {
+
 class Board {
 public:
     explicit Board(const int& width, const int& height);
@@ -22,5 +24,7 @@ private:
     int width_;
     int height_;
 };
+
+}
 
 #endif

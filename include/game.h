@@ -5,6 +5,8 @@
 #include <string>
 #include <iostream>
 
+namespace boardgame {
+
 class Game {
 public:
     explicit Game();
@@ -23,5 +25,7 @@ protected:
     std::string player2_;
     std::string* currentPlayer_;
 };
+
+}
 
 #endif

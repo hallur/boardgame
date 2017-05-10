@@ -1,5 +1,13 @@
 #include "computer.h"
 
-void Computer::playTurn() {
+boardgame::Computer::Computer(std::string name) : boardgame::Player(name) {
+
+}
+
+boardgame::Computer::~Computer() {
+
+}
+
+void boardgame::Computer::playTurn() {
 
 }

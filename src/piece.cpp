@@ -1,7 +1,7 @@
 #include "piece.h"
 #include <iostream>
 
-Piece::Piece(const char& marker, std::string* player) : marker_(marker), player_(player) {
+boardgame::Piece::Piece(const char& marker, boardgame::Player* player) : marker_(marker), player_(player) {
     moves_ = {
         {0, -1}, // up
         {1, 0},  // right
@@ -17,9 +17,9 @@ Piece::Piece(const char& marker, std::string* player) : marker_(marker), player_
     };
 }
 
-Piece::~Piece() {}
+boardgame::Piece::~Piece() {}
 
-std::ostream& operator<<(std::ostream& os, const Piece& rhs) {
+std::ostream& boardgame::operator<<(std::ostream& os, const boardgame::Piece& rhs) {
     os << rhs.marker_;
     return os;
 }

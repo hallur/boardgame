@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-Board::Board(const int& width, const int &height) {
+boardgame::Board::Board(const int& width, const int &height) {
     width_ = width;
     height_ = height;
 
@@ -15,7 +15,7 @@ Board::Board(const int& width, const int &height) {
     }
 }
 
-Board::~Board() {
+boardgame::Board::~Board() {
     for (int y = 0; y < height_; y++) {
         for (int x = 0; x < width_; x++) {
             if (pieces_[y][x]) {
@@ -25,14 +25,14 @@ Board::~Board() {
     }
 }
 
-Piece* Board::getPiece(const int& x, const int& y) const {
+boardgame::Piece* boardgame::Board::getPiece(const int& x, const int& y) const {
     if ((x < 0 || x >= width_) || (y < 0 || y >= height_)) {
         throw std::out_of_range("x and/or y out of range");
     }
     return pieces_[y][x];
 }
 
-bool Board::move(Piece* from, Piece* to) {
+bool boardgame::Board::move(Piece* from, Piece* to) {
     if (!from)
         return false;
     if (to)
@@ -42,11 +42,11 @@ bool Board::move(Piece* from, Piece* to) {
     return true;
 }
 
-std::vector<Piece*> Board::getLegalMoves(Piece* piece) const {
+std::vector<boardgame::Piece*> boardgame::Board::getLegalMoves(Piece* piece) const {
     return std::vector<Piece*>();
 }
 
-std::ostream& operator<<(std::ostream& os, const Board& rhs) {
+std::ostream& boardgame::operator<<(std::ostream& os, const boardgame::Board& rhs) {
     for (int y = 0; y < rhs.height_; y++) {
         for (int x = 0; x < rhs.width_; x++) {
             if (rhs.pieces_[y][x]) {
