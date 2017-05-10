@@ -20,7 +20,7 @@ public:
 
     Piece* getPieceAt(Location location) const;
 
-    virtual bool move(Piece* from, Piece* to);
+    bool movePiece(Location from, Location to);
     virtual std::vector<Piece*> getLegalMoves(Piece* piece) const;
 
     friend std::ostream& operator<<(std::ostream& os, const Board& rhs);
