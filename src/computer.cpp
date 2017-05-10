@@ -1,6 +1,6 @@
 #include "computer.h"
 
-boardgame::Computer::Computer(std::string name) : boardgame::Player(name) {
+boardgame::Computer::Computer(std::string name, boardgame::Difficulty difficulty) : boardgame::Player(name), difficulty_(difficulty) {
 
 }
 

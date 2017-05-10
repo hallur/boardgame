@@ -12,13 +12,11 @@ public:
     explicit Game(Player* player1, Player* player2, int maxNumberOfMoves, Board board = Board());
     virtual ~Game();
 
-    //virtual void initialize();
     virtual void playTurn();
     virtual Player* getWinner() const;
     virtual void printBoard() const;
 
 protected:
-    //Piece* getPieceFromUser(const std::string& message) const;
     Player* player1_;
     Player* player2_;
     const int maxNumberOfMoves_;
