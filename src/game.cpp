@@ -1,22 +1,23 @@
 #include "game.h"
 
-boardgame::Game::Game() : board_(Board(3, 3)), player1_("Player 1"), player2_("Player 2") {
-    currentPlayer_ = &player1_;
+boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2, boardgame::Board board) : board_(board), player1_(player1), player2_(player2) {
+    currentPlayer_ = player1_;
 }
+
+boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2) : Game(player1, player2, Board()) {}
 
 boardgame::Game::~Game() {}
 
-void boardgame::Game::initialize() {
+/*void boardgame::Game::initialize() {
     currentPlayer_ = &player1_;
     board_ = Board(3, 3);
-}
+}*/
 
 void boardgame::Game::playTurn() {
-    /*Piece* from = getPieceFromUser("From [x, y]: ");
-    Piece* to = getPieceFromUser("To [x, y]: ");*/
+
 }
 
-std::string* boardgame::Game::getWinner() const {
+boardgame::Player* boardgame::Game::getWinner() const {
     return nullptr;
 }
 
@@ -24,7 +25,7 @@ void boardgame::Game::printBoard() const {
     std::cout << board_;
 }
 
-boardgame::Piece* boardgame::Game::getPieceFromUser(const std::string& message) const {
+/*boardgame::Piece* boardgame::Game::getPieceFromUser(const std::string& message) const {
     while (true) {
         int x, y;
         std::cout << message;
@@ -36,4 +37,4 @@ boardgame::Piece* boardgame::Game::getPieceFromUser(const std::string& message) 
             std::cout << "Selection out of bounds. Try again.";
         }
     }
-}
+}*/

@@ -2,10 +2,9 @@
 #include <string>
 #include <iostream>
 
-boardgame::Board::Board(const int& width, const int &height) {
-    width_ = width;
-    height_ = height;
+boardgame::Board::Board() : Board(4, 4) {}
 
+boardgame::Board::Board(const int& width, const int &height) : width_(width), height_(height) {
     pieces_ = new Piece**[height];
     for (int y = 0; y < height; y++) {
         pieces_[y] = new Piece*[width];
@@ -25,11 +24,11 @@ boardgame::Board::~Board() {
     }
 }
 
-boardgame::Piece* boardgame::Board::getPiece(const int& x, const int& y) const {
-    if ((x < 0 || x >= width_) || (y < 0 || y >= height_)) {
-        throw std::out_of_range("x and/or y out of range");
+boardgame::Piece* boardgame::Board::getPieceAt(Location location) const {
+    if ((location.x < 0 || location.x >= width_) || (location.y < 0 || location.y >= height_)) {
+        throw std::out_of_range("argument 'location' out of bounds");
     }
-    return pieces_[y][x];
+    return pieces_[location.y][location.x];
 }
 
 bool boardgame::Board::move(Piece* from, Piece* to) {

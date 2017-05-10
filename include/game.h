@@ -9,21 +9,22 @@ namespace boardgame {
 
 class Game {
 public:
-    explicit Game();
+    explicit Game(Player* player1, Player* player2, Board board);
+    explicit Game(Player* player1, Player* player2);
     virtual ~Game();
 
-    virtual void initialize();
+    //virtual void initialize();
     virtual void playTurn();
-    virtual std::string* getWinner() const;
+    virtual Player* getWinner() const;
     virtual void printBoard() const;
 
 protected:
-    Piece* getPieceFromUser(const std::string& message) const;
+    //Piece* getPieceFromUser(const std::string& message) const;
 
     Board board_;
-    std::string player1_;
-    std::string player2_;
-    std::string* currentPlayer_;
+    Player* player1_;
+    Player* player2_;
+    Player* currentPlayer_;
 };
 
 }

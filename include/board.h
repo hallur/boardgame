@@ -7,12 +7,18 @@
 
 namespace boardgame {
 
+struct Location {
+    int x;
+    int y;
+};
+
 class Board {
 public:
+    explicit Board();
     explicit Board(const int& width, const int& height);
     virtual ~Board();
 
-    Piece* getPiece(const int& x, const int& y) const;
+    Piece* getPieceAt(Location location) const;
 
     virtual bool move(Piece* from, Piece* to);
     virtual std::vector<Piece*> getLegalMoves(Piece* piece) const;
