@@ -9,7 +9,7 @@
 
 namespace boardgame {
 
-/*! \breif MoveRule
+/*! \struct MoveRule
 *   used to define one way how a peace can move.
 */
 struct MoveRule {
@@ -19,6 +19,11 @@ struct MoveRule {
     bool kill; //!< is this a killing move
 };
 
+/*! \class Piece
+*   \breif each piece represented by this class
+*   the class holds, everything a piece needs to function on a board, owner of the peace, how it is represented
+*   and how it can move on a board.
+*/
 class Piece {
 public:
     /*! \breif Piece constructor
@@ -40,6 +45,10 @@ public:
     *   @param player new owner
     */
     void setPlayer(Player* player);
+    /*! \breif Piece getMoveRules
+    *   retunrs all move rules a piece has in a vector
+    */
+    std::vector<MoveRule> getMoveRules() const;
     /*! \breif Pice operator<<
     *   sets the piece marker into the ostream
     *   @param os the ostream
