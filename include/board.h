@@ -7,6 +7,11 @@
 
 namespace boardgame {
 
+struct Location {
+    int x;
+    int y;
+};
+
 class Board {
 public:
     explicit Board();
