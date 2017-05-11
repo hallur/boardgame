@@ -2,7 +2,7 @@
 #define GAME_H
 
 /*! \file game.h
-*   \breif contains base class for games
+*   \brief contains base class for games
 */
 
 #include "structs.h"
@@ -15,7 +15,7 @@
 namespace boardgame {
 
 /*! \class Game
-*   \breif base class for all games, pure virtual
+*   \brief base class for all games, pure virtual
 *
 *   Class that holds everything a game should need, the players involved, maximum number of moves, the game board, whose turn it is etc.
 */
@@ -23,21 +23,21 @@ class Game {
 public:
     // TODO
     explicit Game(Player* player1, Player* player2, int maxNumberOfMoves = -1);
-    /*! \breif game destructor
+    /*! \brief game destructor
     */
     virtual ~Game();
-    /*! \breif Play turn
+    /*! \brief Play turn
     *
     *   ...
     */
     void playTurn();
-    /*! \breif Get winner
+    /*! \brief Get winner
     *
     *   checks if there is a winner, if there is one return the winner if ther in no winner yet returns nullPtr;
     /   if there is a tie TODO!
     */
     virtual Player* getWinner() const = 0;
-    /*! \breif Pring board
+    /*! \brief Pring board
     *
     *   Prints the board in the current state.
     */

@@ -12,21 +12,21 @@ namespace boardgame {
 enum class Difficulty { random, easy, medium, hard };
 
 /*! \class Computer
-*   \breif Computer is a class used for computer players, derived from the Player class
+*   \brief Computer is a class used for computer players, derived from the Player class
 *
 *   Uses AI to interact with the came, can have different difficultys.   
 */
 class Computer : public Player {
 public:
-    /*! \breif Computer constructor
+    /*! \brief Computer constructor
     *   
     *   @param name Name of the player
     */
     explicit Computer(std::string name, Difficulty difficulty);
-    /*! 'breif Computer destructor
+    /*! 'brief Computer destructor
     */
     virtual ~Computer();
-    /*! \breif Play Turn.
+    /*! \brief Play Turn.
     *   used when the computer plays a turn.
     */
     virtual Move playTurn();

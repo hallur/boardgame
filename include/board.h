@@ -2,7 +2,7 @@
 #define BOARD_H
 
 /*! \file board.h
-*   \breif contains the board class for games
+*   \brief contains the board class for games
 */
 
 
@@ -22,7 +22,7 @@ public:
     int getHeight() const;
     Piece* getPieceAt(Location location) const;
     std::vector<Location> getLegalMovesFor(Location) const;
-    
+
     virtual void initialize(Player* player1, Player* player2) = 0;
     void movePiece(Location from, Location to);
 

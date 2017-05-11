@@ -1,15 +1,18 @@
 #ifndef EXCEPTIONS_H
 #define EXCEPTIONS_H
 
+#include <exception>
+
 /*! \file exceptions.h
-*   \breif Holds custoum exceptions
+*   \brief Holds custoum exceptions
 *
 *   contains all custoum exceptions for boardgames.
 */
 
 namespace boardgame {
 
-/*! \class Parent class for custoum boardgame exceptions
+/*! \class boardgame_exception
+*   \brief Parent class for custoum boardgame exceptions
 *
 *   pure virtual class that should be a base class for all boardgame coustom exceptions
 */
@@ -18,7 +21,8 @@ public:
     virtual const char* what() const throw() = 0; //!< pure virtual function that will be used for custom exceptions
 };
 
-/*! \class Illegal move exception derived from boardgame exception
+/*! \class illegal_move_exception
+*   \brief Illegal move exception derived from boardgame exception
 *
 *   thrown when a player attemts to do an illegal move
 */
