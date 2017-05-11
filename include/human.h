@@ -8,21 +8,21 @@
 namespace boardgame {
 
 /*! \class Human
-*   \breif Human is a class used for human players, derived from the Player class
+*   \brief Human is a class used for human players, derived from the Player class
 *
 *   The class defines playTurn so that a human can interact in the game.
 */
 class Human : public Player {
 public:
-    /*! \breif Human constructor
+    /*! \brief Human constructor
     *   
     *   @param name Name of the player
     */
     explicit Human(std::string name);
-    /*! \breif Human destructor
+    /*! \brief Human destructor
     */
     virtual ~Human();
-    /*! \breif Play Turn.
+    /*! \brief Play Turn.
     *   used when playing a turn.
     */
     virtual Move playTurn();

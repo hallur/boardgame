@@ -2,7 +2,7 @@
 #define STRUCTS_H
 
 /*! \file structs.h
-*   \breif Contains structs used in boardgames
+*   \brief Contains structs used in boardgames
 */
 
 namespace boardgame {
