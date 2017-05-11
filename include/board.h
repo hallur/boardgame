@@ -14,14 +14,6 @@
 
 namespace boardgame {
 
-struct Location {
-    int x;
-    int y;
-    explicit Location() : Location(0, 0) {};
-    explicit Location(const int& x, const int& y) : x(x), y(y) {};
-    bool operator==(const Location& rhs) { return (x == rhs.x && y == rhs.y); }
-};
-
 class Board {
 public:
     explicit Board(const int& width, const int& height);
