@@ -30,3 +30,34 @@ void boardgame::foxandhound::Board::initialize(boardgame::Player* player1, board
         pieces_[7][x] = (x != 0 && x % 4 == 0) ? new boardgame::foxandhound::Fox(player1) : nullptr;
     }
 }
+
+boardgame::Location boardgame::foxandhound::Board::getFoxLocation() const {
+    for (int y = height_ - 1; y >= 0; y--) {
+        for (int x = 0; x < width_; x++) {
+            if (pieces_[y][x]) {
+                if (pieces_[y][x]->getMarker() == 'f') {
+                    return boardgame::Location(x, y);
+                }
+            }
+        }
+    }
+    return boardgame::Location(); // something went wrong; fox was not found
+}
+
+boardgame::Location* boardgame::foxandhound::Board::getHoundLocations() const {
+    auto locations = new boardgame::Location[4];
+    int currentHoundIndex = 0;
+    for (int y = 0; y < height_; y++) {
+        for (int x = 0; x < width_; x++) {
+            if (pieces_[y][x]) {
+                if (pieces_[y][x]->getMarker() == 'H') {
+                    locations[currentHoundIndex++] = boardgame::Location(x, y);
+                    if (currentHoundIndex == 4) {
+                        return locations;
+                    }
+                }
+            }
+        }
+    }
+    return locations; // something went wrong; 4 hounds were not found
+}
