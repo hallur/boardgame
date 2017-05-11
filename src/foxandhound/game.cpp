@@ -10,6 +10,25 @@ boardgame::foxandhound::Game::~Game() {
 }
 
 boardgame::Player* boardgame::foxandhound::Game::getWinner() const {
-    // todo: implement this function
+    // todo: thought; is casting the right approach here?
+    auto board = dynamic_cast<foxandhound::Board*>(board_);
+    auto foxLocation = board->getFoxLocation();
+    auto houndLocations = board->getHoundLocations();
+    // check if player 1 (fox) is winner
+    bool foxIsWinner = true;
+    for (int i = 0; i < 4; i++) {
+        auto currentHoundLocation = houndLocations[i];
+        if (currentHoundLocation.y < foxLocation.y) {
+            foxIsWinner = false;
+            break;
+        }
+    }
+    if (foxIsWinner) {
+        return player1_;
+    }
+    // check if player 2 (hounds) is winner
+    if (board->getLegalMovesFor(foxLocation).empty()) {
+        return player2_;
+    }
     return nullptr;
 }
