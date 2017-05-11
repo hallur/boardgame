@@ -45,7 +45,6 @@ void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location t
     if (std::find(legalMoves.begin(), legalMoves.end(), to) == legalMoves.end()) {
         throw boardgame::illegal_move_exception();
     }
-    boardgame::Piece* fromPiece = getPieceAt(from); // no need to try-catch this
     boardgame::Piece* toPiece = nullptr;
     try {
         toPiece = getPieceAt(to);
@@ -55,11 +54,8 @@ void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location t
     if (toPiece) {
         delete toPiece;
     }
-    // todo: thought; is this the right approach design wise?
     pieces_[to.y][to.x] = pieces_[from.y][from.x];
-    pieces_[from.y][from.x] = nullptr;
-    /*toPiece = fromPiece; // this does not work
-    fromPiece = nullptr;*/
+    pieces_[from.y][from.x] = nullptr; // Hlynur approves
 }
 
 std::vector<boardgame::Location> boardgame::Board::getLegalMovesFor(boardgame::Location location) const {
