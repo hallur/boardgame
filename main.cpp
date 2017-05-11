@@ -9,10 +9,11 @@ int main(int argc, char **argv) {
 
     auto game = boardgame::foxandhound::Game(player1, player2);
 
-    while (!game.getWinner()) {
+    do {
         game.display();
         game.playTurn();
-    }
+        game.switchCurrentPlayer();
+    } while (!game.getWinner());
 
     return 0;
 }
