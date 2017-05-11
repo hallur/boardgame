@@ -32,3 +32,7 @@ void boardgame::Game::display() const {
     std::cout << (currentPlayer_ == player1_ ? 0 : 1) << std::endl;
     // todo: print number of pieces for both players
 }
+
+void boardgame::Game::switchCurrentPlayer() {
+    currentPlayer_ = (currentPlayer_ == player1_ ? player2_ : player1_);
+}

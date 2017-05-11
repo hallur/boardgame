@@ -42,6 +42,7 @@ public:
     *   Prints the board in the current state.
     */
     void display() const;
+    void switchCurrentPlayer(); // document this function
 
 protected:
     Player* player1_; //!< Player one
