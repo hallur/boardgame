@@ -5,6 +5,10 @@ boardgame::Piece::Piece(boardgame::Player* player, const char& marker) : marker_
 
 boardgame::Piece::~Piece() {}
 
+char boardgame::Piece::getMarker() const {
+    return marker_;
+}
+
 boardgame::Player* boardgame::Piece::getPlayer() const {
     return player_;
 }
