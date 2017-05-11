@@ -12,6 +12,8 @@ void boardgame::Game::playTurn() {
     while(invalidInput){
         try {
             Move turn = currentPlayer_->playTurn();
+            turn.from.y = board_->getHeight() - turn.from.y;
+            turn.to.y = board_->getHeight() - turn.to.y;
             board_->movePiece(turn.from, turn.to);
             invalidInput = false;
         } catch (std::out_of_range& e) {

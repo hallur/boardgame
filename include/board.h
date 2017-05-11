@@ -19,10 +19,12 @@ public:
     explicit Board(const int& width, const int& height);
     virtual ~Board();
 
-    virtual void initialize(Player* player1, Player* player2) = 0;
+    int getHeight() const;
     Piece* getPieceAt(Location location) const;
-    void movePiece(Location from, Location to);
     std::vector<Location> getLegalMovesFor(Location) const;
+    
+    virtual void initialize(Player* player1, Player* player2) = 0;
+    void movePiece(Location from, Location to);
 
     friend std::ostream& operator<<(std::ostream& os, const Board& rhs);
 

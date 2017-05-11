@@ -14,12 +14,13 @@ boardgame::Move boardgame::Human::playTurn() {
 
     boardgame::Location fromLoc;
     fromLoc.x = static_cast<int>(fromStr[0]) - 97;
-    fromLoc.y = static_cast<int>(fromStr[1]);
+    fromLoc.y = static_cast<int>(fromStr[1]) - 48;
 
     boardgame::Location toLoc;
     toLoc.x = static_cast<int>(toStr[0]) - 97;
-    toLoc.y = static_cast<int>(toStr[1]);
+    toLoc.y = static_cast<int>(toStr[1]) - 48;
 
+    std::cout << "From: " << fromLoc.x << " " << fromLoc.y << " To: " << toLoc.x << " " << toLoc.y << std::endl;
     boardgame::Move move;
     move.from = fromLoc;
     move.to = toLoc;

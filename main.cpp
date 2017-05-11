@@ -11,8 +11,7 @@ int main(int argc, char **argv) {
 
     while (!game.getWinner()) {
         game.display();
-        std::cin.get();
-        //game.playTurn();
+        game.playTurn();
     }
 
     return 0;

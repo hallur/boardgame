@@ -24,6 +24,10 @@ boardgame::Board::~Board() {
     }
 }
 
+int boardgame::Board::getHeight() const {
+    return height_;
+}
+
 boardgame::Piece* boardgame::Board::getPieceAt(boardgame::Location location) const {
     if ((location.x < 0 || location.x >= width_) || (location.y < 0 || location.y >= height_)) {
         throw std::out_of_range("argument 'location' out of bounds");
