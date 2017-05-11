@@ -17,6 +17,7 @@ namespace boardgame {
 class Board {
 public:
     explicit Board(const int& width, const int& height);
+    explicit Board(const Board& rhs);
     virtual ~Board();
 
     int getHeight() const;
