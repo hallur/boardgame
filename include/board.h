@@ -1,18 +1,18 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+/*! \file board.h
+*   \breif contains the board class for games
+*/
+
+
+#include "structs.h"
 #include "piece.h"
 
 #include <utility>
 #include <vector>
 
 namespace boardgame {
-
-struct Location {
-    int x;
-    int y;
-    bool operator==(const Location& rhs) { return (x == rhs.x && y == rhs.y); }
-};
 
 class Board {
 public:

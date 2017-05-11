@@ -4,6 +4,8 @@ boardgame::Computer::Computer(std::string name, boardgame::Difficulty difficulty
 
 boardgame::Computer::~Computer() {}
 
-void boardgame::Computer::playTurn() {
-    // todo: implement this function
+boardgame::Move boardgame::Computer::playTurn() {
+    // todo: implement this function, calculate move
+    boardgame::Move move;
+    return move;
 }

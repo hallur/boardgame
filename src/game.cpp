@@ -1,4 +1,5 @@
 #include "game.h"
+#include "exceptions.h"
 
 boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2, int maxNumberOfMoves) : player1_(player1), player2_(player2), maxNumberOfMoves_(maxNumberOfMoves) {
     currentPlayer_ = player1_;
@@ -7,7 +8,21 @@ boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2, in
 boardgame::Game::~Game() {}
 
 void boardgame::Game::playTurn() {
-    // todo: implement this function
+    bool invalidInput = true;
+    while(invalidInput){
+        try {
+            Move turn = currentPlayer_->playTurn();
+            board_->movePiece(turn.from, turn.to);
+            invalidInput = false;
+        } catch (std::out_of_range& e) {
+            std::cout << "Out of Range error: " << e.what() << std::endl;
+        } catch(boardgame::illegal_move_exception& e) {
+            std::cout << e.what() << std::endl;
+        }catch (...) {
+            std::cerr << "An unknown error has accured! When moving." << std::endl;
+            throw;
+        }
+    }
 }
 
 void boardgame::Game::display() const {

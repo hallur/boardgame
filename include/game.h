@@ -1,6 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
+/*! \file game.h
+*   \breif contains base class for games
+*/
+
+#include "structs.h"
 #include "board.h"
 #include "player.h"
 

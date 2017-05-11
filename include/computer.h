@@ -29,7 +29,7 @@ public:
     /*! \breif Play Turn.
     *   used when the computer plays a turn.
     */
-    virtual void playTurn();
+    virtual Move playTurn();
 private:
     Difficulty difficulty_; //!< holds the difficulty of the AI
 };

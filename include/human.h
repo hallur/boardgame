@@ -2,6 +2,7 @@
 #define HUMAN_H
 
 #include "player.h"
+
 #include <string>
 
 namespace boardgame {
@@ -24,7 +25,7 @@ public:
     /*! \breif Play Turn.
     *   used when playing a turn.
     */
-    virtual void playTurn();
+    virtual Move playTurn();
 };
 
 }
