@@ -6,8 +6,7 @@ boardgame::foxandhound::Game::Game(boardgame::Player* player1, boardgame::Player
 }
 
 boardgame::foxandhound::Game::~Game() {
-    // todo: implement this destructor
-    //delete board_;
+    delete board_;
 }
 
 boardgame::Player* boardgame::foxandhound::Game::getWinner() const {
