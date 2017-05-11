@@ -20,7 +20,7 @@ boardgame::Board::Board(const Board& rhs) : width_(rhs.width_), height_(rhs.heig
     for (int y = 0; y < rhs.height_; y++) {
         pieces_[y] = new Piece*[rhs.width_];
         for (int x = 0; x < rhs.width_; x++) {
-            pieces_[y][x] = rhs.pieces_[y][x]; // todo: should work without overloaded assignment operator but needs to be tested
+            pieces_[y][x] = rhs.pieces_[y][x]; // todo: does NOT work as intended
         }
     }
 }
