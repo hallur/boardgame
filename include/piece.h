@@ -32,11 +32,11 @@ public:
     *   @param marker Character that will represent the piece on the board
     *   @param player Owner of the piece
     */
-    explicit Piece(const char& marker, Player* player);
+    explicit Piece(Player* player, const char& marker);
     /*! \breif Piece destructor
     *   destructor
     */
-    virtual ~Piece();
+    virtual ~Piece() = 0;
     /*! \breif Piece getPlayer
     *   returns owner of the piece
     */
@@ -57,7 +57,6 @@ public:
     */
     friend std::ostream& operator<<(std::ostream& os, const Piece& rhs);
 protected:
-private:
     char marker_; //!< stores the marker used to represent the piece for the player
     Player* player_; //!< owner of the piece
     std::vector<MoveRule> moveRules_; //!< holds a vector of MoveRules that define how a piece can move

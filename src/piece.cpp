@@ -1,7 +1,7 @@
 #include "piece.h"
 #include <iostream>
 
-boardgame::Piece::Piece(const char& marker, boardgame::Player* player) : marker_(marker), player_(player) {}
+boardgame::Piece::Piece(boardgame::Player* player, const char& marker) : marker_(marker), player_(player) {}
 
 boardgame::Piece::~Piece() {}
 

@@ -17,10 +17,10 @@ public:
     *   Sets the name of player.
     *   @param name String to identify player
     */
-    explicit Player(std::string name) : name_(name) {};
+    explicit Player(std::string name);
     /*! \breif Player destructor
     */
-    virtual ~Player() {};
+    virtual ~Player();
     /*! \breif Player playTurn()
     *   Pure virtual, to be overwritten in derived classes such as player and computer.
     */

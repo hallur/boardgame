@@ -10,6 +10,17 @@
     // -I: Include directory
     // -Wall: Display (almost) all warnings
     // -Wconversion: Display conversion warnings
-    "args": ["-std=c++11", "-g", "-o", "bin/main.exe", "-I", "include/", "-Wall", "-Wconversion", "main.cpp", "src/game.cpp", "src/board.cpp", "src/piece.cpp", "src/human.cpp", "src/computer.cpp"],
+    "args": ["-std=c++11", "-g", "-o", "bin/main.exe", "-I", "include/", "-Wall", "-Wconversion",
+    "main.cpp",
+    "src/game.cpp",
+        "src/foxandhound/game.cpp",
+    "src/board.cpp",
+        "src/foxandhound/board.cpp",
+    "src/piece.cpp",
+        "src/foxandhound/fox.cpp",
+        "src/foxandhound/hound.cpp",
+    "src/player.cpp",
+        "src/human.cpp",
+        "src/computer.cpp"],
     "showOutput": "always"
 }

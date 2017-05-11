@@ -1,17 +1,19 @@
 #include "human.h"
-#include "game.h"
+#include "foxandhound/game.h"
+
+#include <iostream>
 
 int main(int argc, char **argv) {
-    //boardgame::Player* player1 = new boardgame::Human("Player1");
-    //boardgame::Player* player2 = new boardgame::Human("Player2");
+    auto player1 = new boardgame::Human("Player 1");
+    auto player2 = new boardgame::Human("Player 2");
 
-    //boardgame::Game game(player1, player2, 0);
-    //game.initialize();
+    auto game = boardgame::foxandhound::Game(player1, player2);
 
-    /*while (!game.getWinner()) {
-        game.printBoard();
-        game.playTurn();
-    }*/
+    while (!game.getWinner()) {
+        game.display();
+        std::cin.get();
+        //game.playTurn();
+    }
 
     return 0;
 }

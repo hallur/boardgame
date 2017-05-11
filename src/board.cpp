@@ -4,13 +4,11 @@
 #include <iostream>
 #include <string>
 
-boardgame::Board::Board() : Board(4, 4) {}
-
 boardgame::Board::Board(const int& width, const int &height) : width_(width), height_(height) {
     pieces_ = new Piece**[height];
     for (int y = 0; y < height; y++) {
         pieces_[y] = new Piece*[width];
-        for (int x = 0; x < width; x++) {
+        for (int x = 0; x < width_; x++) {
             pieces_[y][x] = nullptr;
         }
     }
@@ -43,8 +41,8 @@ void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location t
     if (std::find(legalMoves.begin(), legalMoves.end(), to) == legalMoves.end()) {
         throw "illegal move";
     }
-    Piece* fromPiece = getPieceAt(from); // no need to try-catch this
-    Piece* toPiece = nullptr;
+    boardgame::Piece* fromPiece = getPieceAt(from); // no need to try-catch this
+    boardgame::Piece* toPiece = nullptr;
     try {
         toPiece = getPieceAt(to);
     } catch(std::out_of_range e) {
@@ -66,13 +64,13 @@ std::vector<boardgame::Location> boardgame::Board::getLegalMovesFor(boardgame::L
         throw e;
     }
     if (piece) {
-        std::vector<MoveRule> moveRules = piece->getMoveRules();
+        std::vector<boardgame::MoveRule> moveRules = piece->getMoveRules();
         for (auto moveRule : moveRules) {
             boardgame::Location tmpLocation = location;
             do {
                 tmpLocation.x += moveRule.xDiff;
                 tmpLocation.y += moveRule.yDiff;
-                Piece* targetPiece = nullptr;
+                boardgame::Piece* targetPiece = nullptr;
                 try {
                     targetPiece = getPieceAt(tmpLocation);
                 } catch (std::out_of_range e) {
@@ -94,15 +92,19 @@ std::vector<boardgame::Location> boardgame::Board::getLegalMovesFor(boardgame::L
 
 std::ostream& boardgame::operator<<(std::ostream& os, const boardgame::Board& rhs) {
     for (int y = 0; y < rhs.height_; y++) {
+        os << (rhs.height_ - y) << ' ';
         for (int x = 0; x < rhs.width_; x++) {
             if (rhs.pieces_[y][x]) {
                 os << *rhs.pieces_[y][x];
             } else {
-                os << '#';
+                os << '.';
             }
-            os << ' ';
         }
         os << std::endl;
+    }
+    os << "  ";
+    for (int x = 0; x < rhs.width_; x++) {
+        os << static_cast<char>(x + 97);
     }
     return os;
 }
