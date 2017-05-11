@@ -25,7 +25,7 @@ public:
     /*! \brief Play Turn.
     *   used when playing a turn.
     */
-    virtual Move playTurn();
+    virtual void playTurn(Board* board);
 };
 
 }

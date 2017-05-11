@@ -7,7 +7,7 @@
 *   AI that does not really know what it is doing so it just does something.
 */
 
-#include "player.h"
+#include "computer.h"
 #include <string>
 
 namespace boardgame {
@@ -30,7 +30,7 @@ public:
     /*! \brief Play Turn.
     *   used when the computer plays a turn.
     */
-    virtual Move playTurn();
+    virtual void playTurn(Board* board);
 };
 
 }
