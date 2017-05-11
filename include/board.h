@@ -25,6 +25,7 @@ public:
 
     virtual void initialize(Player* player1, Player* player2) = 0;
     void movePiece(Location from, Location to);
+    int countPiecesFor(Player* player) const;
 
     friend std::ostream& operator<<(std::ostream& os, const Board& rhs);
 

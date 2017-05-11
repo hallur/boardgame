@@ -30,7 +30,7 @@ void boardgame::Game::playTurn() {
 void boardgame::Game::display() const {
     std::cout << *board_ << std::endl;
     std::cout << (currentPlayer_ == player1_ ? 0 : 1) << std::endl;
-    // todo: print number of pieces for both players
+    std::cout << board_->countPiecesFor(player1_) << ' ' << board_->countPiecesFor(player2_) << std::endl;
 }
 
 void boardgame::Game::switchCurrentPlayer() {

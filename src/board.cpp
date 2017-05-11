@@ -98,6 +98,20 @@ std::vector<boardgame::Location> boardgame::Board::getLegalMovesFor(boardgame::L
     return legalMoves;
 }
 
+int boardgame::Board::countPiecesFor(Player* player) const {
+    int pieceCount = 0;
+    for (int y = 0; y < width_; y++) {
+        for (int x = 0; x < height_; x++) {
+            if (pieces_[y][x]) {
+                if (pieces_[y][x]->getPlayer() == player) {
+                    pieceCount++;
+                }
+            }
+        }
+    }
+    return pieceCount;
+}
+
 std::ostream& boardgame::operator<<(std::ostream& os, const boardgame::Board& rhs) {
     for (int y = 0; y < rhs.height_; y++) {
         os << (rhs.height_ - y) << ' ';
