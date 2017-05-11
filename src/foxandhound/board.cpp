@@ -6,6 +6,8 @@ boardgame::foxandhound::Board::Board(boardgame::Player* player1, boardgame::Play
     initialize(player1, player2);
 }
 
+boardgame::foxandhound::Board::Board(const boardgame::foxandhound::Board& rhs) : boardgame::Board::Board(rhs) {}
+
 boardgame::foxandhound::Board::~Board() {}
 
 void boardgame::foxandhound::Board::initialize(boardgame::Player* player1, boardgame::Player* player2) {

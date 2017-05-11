@@ -8,10 +8,11 @@ namespace foxandhound {
 
 class Board : public boardgame::Board {
 public:
-    explicit Board(boardgame::Player* player1, boardgame::Player* player2);
+    explicit Board(Player* player1, Player* player2);
+    explicit Board(const foxandhound::Board&);
     virtual ~Board();
 
-    virtual void initialize(boardgame::Player* player1, boardgame::Player* player2);
+    virtual void initialize(Player* player1, Player* player2);
     Location getFoxLocation() const;
     Location* getHoundLocations() const;
 };
