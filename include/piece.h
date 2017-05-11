@@ -1,6 +1,11 @@
 #ifndef PIECE_H
 #define PIECE_H
 
+/*! \file piece.h
+*   \breif Contains base class for Pieces in board game.
+*/
+
+#include "structs.h"
 #include "player.h"
 
 #include <string>
@@ -8,17 +13,6 @@
 #include <vector>
 
 namespace boardgame {
-
-/*! \struct MoveRule
-*   used to define one way how a peace can move.
-*/
-struct MoveRule {
-    int xDiff; //!< difference weetween current x possition and x possition after movement
-    int yDiff; //!< difference weetween current y possition and y possition after movement
-    bool continuous; //!< can the piece move continuously, ex. bishop in chess 
-    bool kill; //!< is this a killing move
-    bool friendlyFire; //!< allows a peace to be killed by another peace with same owner
-};
 
 /*! \class Piece
 *   \breif each piece represented by this class

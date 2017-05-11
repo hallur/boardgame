@@ -1,6 +1,12 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+/*! \file board.h
+*   \breif contains the board class for games
+*/
+
+
+#include "structs.h"
 #include "piece.h"
 
 #include <utility>
