@@ -1,4 +1,5 @@
 #include "board.h"
+#include "exceptions.h"
 
 #include <algorithm>
 #include <iostream>
