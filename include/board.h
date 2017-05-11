@@ -15,7 +15,7 @@ struct Location {
 };
 
 class Board {
-protected:
+public:
     explicit Board(const int& width, const int& height);
     virtual ~Board();
 
@@ -26,6 +26,7 @@ protected:
 
     friend std::ostream& operator<<(std::ostream& os, const Board& rhs);
 
+protected:
     Piece*** pieces_;
     int width_;
     int height_;
