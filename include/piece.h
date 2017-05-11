@@ -31,6 +31,7 @@ public:
     *   destructor
     */
     virtual ~Piece() = 0;
+    char getMarker() const; // todo: document this function
     /*! \breif Piece getPlayer
     *   returns owner of the piece
     */

@@ -12,6 +12,8 @@ public:
     virtual ~Board();
 
     virtual void initialize(boardgame::Player* player1, boardgame::Player* player2);
+    Location getFoxLocation() const;
+    Location* getHoundLocations() const;
 };
 
 }}
