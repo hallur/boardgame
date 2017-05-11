@@ -5,11 +5,14 @@
 *   \brief Contains base class for players in boardgames.
 */
 
+
 #include "structs.h"
 
 #include <string>
 
 namespace boardgame {
+
+class Board; // forward decleration
 
 /*! \class Player
 *   \brief base class for players in games, pure virtual.
@@ -30,7 +33,7 @@ public:
     /*! \brief Player playTurn()
     *   Pure virtual, to be overwritten in derived classes such as player and computer.
     */
-    virtual Move playTurn() = 0;
+    virtual void playTurn(Board* board) = 0;
 protected:
     std::string name_; //!< Name used to identify player for the user 
 };
