@@ -20,6 +20,8 @@ struct Location {
 struct Move {
     Location from;
     Location to;
+    explicit Move() {};
+    explicit Move(const Location& from, const Location& to) : from(from), to(to) {};
 };
 /*! \struct MoveRule
 *   used to define one way how a peace can move.

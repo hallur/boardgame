@@ -1,6 +1,12 @@
 #ifndef HUMAN_H
 #define HUMAN_H
 
+/*! \file human.h
+*   \breif Comntains Human player
+*
+*   Human player derived from the Player class
+*/
+
 #include "player.h"
 
 #include <string>

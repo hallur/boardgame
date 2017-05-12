@@ -21,6 +21,7 @@
         "src/foxandhound/hound.cpp",
     "src/player.cpp",
         "src/human.cpp",
-        "src/computer.cpp"],
+        "src/computer.cpp",
+            "src/random.cpp"],
     "showOutput": "always"
 }
