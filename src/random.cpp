@@ -17,7 +17,7 @@ void boardgame::Random::playTurn(boardgame::Board* board) {
     }
     int i = rand() % legalMoves.size();
     try {
-        board->movePiece(legalMoves[i].from, legalMoves[i].to);
+        board->movePiece(legalMoves[i].from, legalMoves[i].to, this);
     } catch (...) {
         
     }

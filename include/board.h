@@ -24,7 +24,7 @@ public:
     std::vector<Location> getLegalMovesFor(Location) const;
 
     virtual void initialize(Player* player1, Player* player2) = 0;
-    void movePiece(Location from, Location to);
+    void movePiece(Location from, Location to, Player* player);
     int countPiecesFor(Player* player) const;
     std::vector<Location> getPiecesLocationFor(Player* player) const;
 

@@ -37,13 +37,20 @@ boardgame::Piece* boardgame::Board::getPieceAt(boardgame::Location location) con
     return pieces_[location.y][location.x];
 }
 
-void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location to) {
+void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location to, Player* player) {
     std::vector<boardgame::Location> legalMoves;
+    boardgame::Piece* fromPiece = nullptr;
     try {
-        legalMoves = getLegalMovesFor(from);
+        fromPiece = getPieceAt(from);
     } catch (std::out_of_range e) {
         throw std::out_of_range("argument 'from' out of bounds");
     }
+    if (fromPiece) {
+        if (fromPiece->getPlayer() != player) {
+            throw boardgame::illegal_move_exception();
+        }
+    }
+    legalMoves = getLegalMovesFor(from); // no need to try-catch this
     if (std::find(legalMoves.begin(), legalMoves.end(), to) == legalMoves.end()) {
         throw boardgame::illegal_move_exception();
     }
