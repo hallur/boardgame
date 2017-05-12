@@ -60,9 +60,12 @@ void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location t
     } catch(std::out_of_range e) {
         throw std::out_of_range("argument 'from' out of bounds");
     }
+    MoveHistoryState state(Move(from, to));
     if (toPiece) {
-        delete toPiece;
+        graveyard_.push(pieces_[to.y][to.x]);
+        state.kill = true;
     }
+    moveHistory_.push(state);
     pieces_[to.y][to.x] = pieces_[from.y][from.x];
     pieces_[from.y][from.x] = nullptr; // Hlynur approves
 }
@@ -128,6 +131,21 @@ std::vector<boardgame::Location> boardgame::Board::getPieceLocationsFor(Player* 
         }
     }
     return locations;
+}
+
+void boardgame::Board::retract() {
+    if (!moveHistory_.empty()) {
+        MoveHistoryState state = moveHistory_.top();
+        moveHistory_.pop();
+        pieces_[state.move.from.y][state.move.from.x] = pieces_[state.move.to.y][state.move.to.x];
+        if (state.kill) {
+            Piece* piece = graveyard_.top();
+            graveyard_.pop();
+            pieces_[state.move.to.y][state.move.to.x] = piece;
+        } else {
+            pieces_[state.move.to.y][state.move.to.x] = nullptr;
+        }
+    }
 }
 
 std::ostream& boardgame::operator<<(std::ostream& os, const boardgame::Board& rhs) {

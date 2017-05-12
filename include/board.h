@@ -11,6 +11,7 @@
 
 #include <utility>
 #include <vector>
+#include <stack>
 
 namespace boardgame {
 
@@ -27,6 +28,7 @@ public:
     void movePiece(Location from, Location to, Player* player);
     int countPiecesFor(Player* player) const;
     std::vector<Location> getPieceLocationsFor(Player* player) const;
+    void retract();
 
     friend std::ostream& operator<<(std::ostream& os, const Board& rhs);
 
@@ -34,6 +36,8 @@ protected:
     Piece*** pieces_;
     int width_;
     int height_;
+    std::stack<Piece*> graveyard_;
+    std::stack<MoveHistoryState> moveHistory_; 
 };
 
 std::ostream& operator<<(std::ostream& os, const Board& rhs);

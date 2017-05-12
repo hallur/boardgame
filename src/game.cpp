@@ -20,3 +20,7 @@ void boardgame::Game::display() const {
 void boardgame::Game::switchCurrentPlayer() {
     currentPlayer_ = (currentPlayer_ == player1_ ? player2_ : player1_);
 }
+
+void boardgame::Game::retract() {
+    board_->retract();
+}

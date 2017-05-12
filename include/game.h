@@ -43,6 +43,7 @@ public:
     */
     void display() const;
     void switchCurrentPlayer(); // document this function
+    void retract();
 
 protected:
     Player* player1_; //!< Player one
