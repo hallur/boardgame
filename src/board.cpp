@@ -118,6 +118,20 @@ int boardgame::Board::countPiecesFor(Player* player) const {
     return pieceCount;
 }
 
+std::vector<boardgame::Location> boardgame::Board::getPiecesLocationFor(Player* player) const {
+    std::vector<boardgame::Location> locations;
+    for (int y = 0; y < width_; y++) {
+        for (int x = 0; x < height_; x++) {
+            if (pieces_[y][x]) {
+                if (pieces_[y][x]->getPlayer() == player) {
+                    locations.push_back(Location(x,y));
+                }
+            }
+        }
+    }
+    return locations;
+}
+
 std::ostream& boardgame::operator<<(std::ostream& os, const boardgame::Board& rhs) {
     for (int y = 0; y < rhs.height_; y++) {
         os << (rhs.height_ - y) << ' ';

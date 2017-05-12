@@ -1,5 +1,7 @@
 #include "human.h"
 #include "board.h"
+#include "exceptions.h"
+
 
 #include <string>
 #include <iostream>
