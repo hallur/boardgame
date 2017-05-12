@@ -1,6 +1,7 @@
 #include "board.h"
 #include "exceptions.h"
 
+#include <typeinfo>
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -11,16 +12,6 @@ boardgame::Board::Board(const int& width, const int &height) : width_(width), he
         pieces_[y] = new Piece*[width];
         for (int x = 0; x < width_; x++) {
             pieces_[y][x] = nullptr;
-        }
-    }
-}
-
-boardgame::Board::Board(const Board& rhs) : width_(rhs.width_), height_(rhs.height_) {
-    pieces_ = new Piece**[rhs.height_];
-    for (int y = 0; y < rhs.height_; y++) {
-        pieces_[y] = new Piece*[rhs.width_];
-        for (int x = 0; x < rhs.width_; x++) {
-            pieces_[y][x] = rhs.pieces_[y][x]; // todo: does NOT work as intended
         }
     }
 }
