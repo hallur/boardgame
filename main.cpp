@@ -1,4 +1,5 @@
 #include "human.h"
+#include "random.h"
 #include "foxandhound/game.h"
 
 #include <iostream>
