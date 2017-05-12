@@ -31,7 +31,7 @@ public:
     /*! \brief Play Turn.
     *   used when the computer plays a turn.
     */
-    virtual void playTurn(Board* board);
+    virtual void playTurn(Board* board) = 0;
 };
 
 }

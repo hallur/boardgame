@@ -33,6 +33,14 @@ public:
     }
 };
 
+//todo: document
+class illegal_board_dimentions_exception : public boardgame_exception {
+public:
+    virtual const char* what() const throw() {
+        return "The dimentions of the board are illegal.";
+    }
+};
+
 }
 
 #endif
