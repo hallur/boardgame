@@ -4,7 +4,7 @@
 /*! \file easy.h
 *   \brief holds the Easy class, derived from Computer class
 *
-*   AI that is not realy hard to beat.
+*   AI that is not realy hard to beat, but still tries.
 */
 
 #include "computer.h"

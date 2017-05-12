@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <stdlib.h>
+#include <iostream>
 
 boardgame::Easy::Easy(std::string name) : boardgame::Computer(name) {}
 
@@ -26,7 +27,8 @@ void boardgame::Easy::playTurn(boardgame::Board* board) {
         try {
             board->movePiece(desiredMoves[i].from, desiredMoves[i].to);
         } catch (...) {
-            
+            std::cerr << "An unknown error has accured when AI tried to perform a desired move!";
+            throw;
         }
     }
     else {
@@ -34,7 +36,8 @@ void boardgame::Easy::playTurn(boardgame::Board* board) {
         try {
             board->movePiece(legalMoves[i].from, legalMoves[i].to);
         } catch (...) {
-            
+            std::cerr << "An unknown error has accured when AI tried to perform a random move!";
+            throw;
         }
     }
 }
