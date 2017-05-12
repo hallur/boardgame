@@ -11,7 +11,7 @@ boardgame::Easy::~Easy() {}
 void boardgame::Easy::playTurn(boardgame::Board* board) {
     std::vector<boardgame::Move> legalMoves;
     std::vector<boardgame::Move> desiredMoves;
-    for ( auto start : board->getPiecesLocationFor(this) ) {
+    for ( auto start : board->getPieceLocationsFor(this) ) {
         for ( auto destination : board->getLegalMovesFor(start) ) {
             if ( board->getPieceAt(destination)) {
                 desiredMoves.push_back(Move(start, destination));
@@ -24,7 +24,7 @@ void boardgame::Easy::playTurn(boardgame::Board* board) {
     if ( !desiredMoves.empty() ) {
         int i = rand() % desiredMoves.size();
         try {
-            board->movePiece(desiredMoves[i].from, desiredMoves[i].to);
+            board->movePiece(desiredMoves[i].from, desiredMoves[i].to, this);
         } catch (...) {
             
         }
@@ -32,7 +32,7 @@ void boardgame::Easy::playTurn(boardgame::Board* board) {
     else {
         int i = rand() % legalMoves.size();
         try {
-            board->movePiece(legalMoves[i].from, legalMoves[i].to);
+            board->movePiece(legalMoves[i].from, legalMoves[i].to, this);
         } catch (...) {
             
         }

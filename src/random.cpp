@@ -10,7 +10,7 @@ boardgame::Random::~Random() {}
 
 void boardgame::Random::playTurn(boardgame::Board* board) {
     std::vector<boardgame::Move> legalMoves;
-    for ( auto start : board->getPiecesLocationFor(this) ) {
+    for ( auto start : board->getPieceLocationsFor(this) ) {
         for ( auto destination : board->getLegalMovesFor(start) ) {
             legalMoves.push_back(Move(start, destination));
         }

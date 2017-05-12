@@ -116,7 +116,7 @@ int boardgame::Board::countPiecesFor(Player* player) const {
     return pieceCount;
 }
 
-std::vector<boardgame::Location> boardgame::Board::getPiecesLocationFor(Player* player) const {
+std::vector<boardgame::Location> boardgame::Board::getPieceLocationsFor(Player* player) const {
     std::vector<boardgame::Location> locations;
     for (int y = 0; y < width_; y++) {
         for (int x = 0; x < height_; x++) {
