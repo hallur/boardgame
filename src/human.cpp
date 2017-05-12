@@ -10,9 +10,8 @@ boardgame::Human::Human(std::string name) : boardgame::Player(name) {}
 boardgame::Human::~Human() {}
 
 void boardgame::Human::playTurn(boardgame::Board* board) {
-
     bool invalidInput = true;
-    while(invalidInput){
+    while (invalidInput) {
         try {
             // todo: handle invalid input
             std::string fromStr, toStr;
@@ -32,6 +31,7 @@ void boardgame::Human::playTurn(boardgame::Board* board) {
 
             turn.from.y = board->getHeight() - turn.from.y;
             turn.to.y = board->getHeight() - turn.to.y;
+
             board->movePiece(turn.from, turn.to);
 
             invalidInput = false;
@@ -39,8 +39,8 @@ void boardgame::Human::playTurn(boardgame::Board* board) {
             std::cout << "Out of Range error: " << e.what() << std::endl;
         } catch(boardgame::illegal_move_exception& e) {
             std::cout << e.what() << std::endl;
-        }catch (...) {
-            std::cerr << "An unknown error has accured! When moving." << std::endl;
+        } catch (...) {
+            std::cerr << "An unknown error has occured! When moving." << std::endl;
             throw;
         }
     }
