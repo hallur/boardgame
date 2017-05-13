@@ -37,13 +37,20 @@ boardgame::Piece* boardgame::Board::getPieceAt(boardgame::Location location) con
     return pieces_[location.y][location.x];
 }
 
-void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location to) {
+void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location to, Player* player) {
     std::vector<boardgame::Location> legalMoves;
+    boardgame::Piece* fromPiece = nullptr;
     try {
-        legalMoves = getLegalMovesFor(from);
+        fromPiece = getPieceAt(from);
     } catch (std::out_of_range e) {
         throw std::out_of_range("argument 'from' out of bounds");
     }
+    if (fromPiece) {
+        if (fromPiece->getPlayer() != player) {
+            throw boardgame::illegal_move_exception();
+        }
+    }
+    legalMoves = getLegalMovesFor(from); // no need to try-catch this
     if (std::find(legalMoves.begin(), legalMoves.end(), to) == legalMoves.end()) {
         throw boardgame::illegal_move_exception();
     }
@@ -53,9 +60,12 @@ void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location t
     } catch(std::out_of_range e) {
         throw std::out_of_range("argument 'from' out of bounds");
     }
+    MoveHistoryState state(Move(from, to));
     if (toPiece) {
-        delete toPiece;
+        graveyard_.push(pieces_[to.y][to.x]);
+        state.kill = true;
     }
+    moveHistory_.push(state);
     pieces_[to.y][to.x] = pieces_[from.y][from.x];
     pieces_[from.y][from.x] = nullptr; // Hlynur approves
 }
@@ -109,7 +119,7 @@ int boardgame::Board::countPiecesFor(Player* player) const {
     return pieceCount;
 }
 
-std::vector<boardgame::Location> boardgame::Board::getPiecesLocationFor(Player* player) const {
+std::vector<boardgame::Location> boardgame::Board::getPieceLocationsFor(Player* player) const {
     std::vector<boardgame::Location> locations;
     for (int y = 0; y < width_; y++) {
         for (int x = 0; x < height_; x++) {
@@ -121,6 +131,21 @@ std::vector<boardgame::Location> boardgame::Board::getPiecesLocationFor(Player* 
         }
     }
     return locations;
+}
+
+void boardgame::Board::retract() {
+    if (!moveHistory_.empty()) {
+        MoveHistoryState state = moveHistory_.top();
+        moveHistory_.pop();
+        pieces_[state.move.from.y][state.move.from.x] = pieces_[state.move.to.y][state.move.to.x];
+        if (state.kill) {
+            Piece* piece = graveyard_.top();
+            graveyard_.pop();
+            pieces_[state.move.to.y][state.move.to.x] = piece;
+        } else {
+            pieces_[state.move.to.y][state.move.to.x] = nullptr;
+        }
+    }
 }
 
 std::ostream& boardgame::operator<<(std::ostream& os, const boardgame::Board& rhs) {

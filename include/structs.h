@@ -23,6 +23,13 @@ struct Move {
     explicit Move() : Move(Location(), Location()) {};
     explicit Move(const Location& from, const Location& to) : from(from), to(to) {};
 };
+// todo: document
+struct MoveHistoryState {
+    Move move;
+    bool kill;
+    explicit MoveHistoryState() : MoveHistoryState(Move()) {}
+    explicit MoveHistoryState(const Move& move, bool kill = false) : move(move), kill(kill) {}
+};
 /*! \struct MoveRule
 *   used to define one way how a peace can move.
 */

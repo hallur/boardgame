@@ -32,7 +32,7 @@ void boardgame::Human::playTurn(boardgame::Board* board) {
             turn.from.y = board->getHeight() - turn.from.y;
             turn.to.y = board->getHeight() - turn.to.y;
 
-            board->movePiece(turn.from, turn.to);
+            board->movePiece(turn.from, turn.to, this);
 
             invalidInput = false;
         } catch (std::out_of_range& e) {
