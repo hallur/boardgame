@@ -28,8 +28,12 @@ public:
     /*! \brief Human destructor
     */
     virtual ~Human();
+
     /*! \brief Play Turn.
+    *
     *   used when playing a turn.
+    *
+    *   @param board    an instance of the board so the computer can calculate a move.
     */
     virtual void playTurn(Board* board);
 };
