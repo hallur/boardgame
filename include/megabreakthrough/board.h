@@ -4,8 +4,8 @@
 /*! \file board.h
 *   \brief file wich holds the board for mega breakthrough game.
 *
-*   The board inherits from our base boardgame::Board class, and implements some
-*   additional features for the mega breakthrough game.
+*   The board inherits from our boardgame::breakthrough::Board class, since it is mostly
+*   the same functionalaty except how the board gets intialized.
 */
 
 #include "../breakthrough/board.h"

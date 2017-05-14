@@ -23,10 +23,11 @@ public:
     *
     *   Creates a pawn.
     *
-    *   @param top if the Pawn is on top of the board or bottom
-    *   @param player Owner of the piece
+    *   @param top      if the Pawn is on top of the board or bottom
+    *   @param player   Owner of the piece
+    *   @param marker   the marker for the pawn p by default
     */
-    explicit Pawn(boardgame::Player* player, bool top);
+    explicit Pawn(boardgame::Player* player, bool top, char marker = 'p');
     /*! \breif ~Pawn destructor
     */
     virtual ~Pawn();
