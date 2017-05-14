@@ -100,11 +100,8 @@ public:
     void printLegalMovesFor(Player* player) const; // todo: document this function
     /*! \fn retract
     *   \brief retracts one game move backwards.
-    *
-    *   returns whether retract was successful or not
     */
     bool retract();
-
     /* \brief prints the board.
     *   
     *   @param os   output stream.
