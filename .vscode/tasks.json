@@ -24,7 +24,6 @@
         "src/foxandhound/fox.cpp",
         "src/foxandhound/hound.cpp",
         "src/breakthrough/pawn.cpp",
-        "src/megabreakthrough/pawn.cpp",
         "src/megabreakthrough/megapawn.cpp",
     "src/player.cpp",
         "src/human.cpp",
