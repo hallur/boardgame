@@ -39,6 +39,10 @@ struct MoveRule {
     bool continuous; //!< can the piece move continuously, ex. bishop in chess 
     bool kill; //!< is this a killing move
     bool friendlyFire; //!< allows a peace to be killed by another peace with same owner
+    int contLength; //!< if the Piece should not be able to move continuosly forever (only move 5 steps forward...) if < 1 no limit
+    // todo: first move
+    explicit MoveRule(const int& xDiff = 0, const int& yDiff = 0, const bool& continuous = false, const bool& kill = false, const bool& friendlyFire = false, const int& contLength = -1) :
+        xDiff(xDiff), yDiff(yDiff), continuous(continuous), kill(kill), friendlyFire(friendlyFire), contLength(contLength) {};
 };
 }
 
