@@ -50,15 +50,15 @@ void boardgame::Board::movePiece(boardgame::Location from, boardgame::Location t
             throw boardgame::illegal_move_exception();
         }
     }
-    legalMoves = getLegalMovesFor(from); // no need to try-catch this
-    if (std::find(legalMoves.begin(), legalMoves.end(), to) == legalMoves.end()) {
-        throw boardgame::illegal_move_exception();
-    }
     boardgame::Piece* toPiece = nullptr;
     try {
         toPiece = getPieceAt(to);
     } catch(std::out_of_range e) {
-        throw std::out_of_range("argument 'from' out of bounds");
+        throw std::out_of_range("argument 'to' out of bounds");
+    }
+    legalMoves = getLegalMovesFor(from); // no need to try-catch this
+    if (std::find(legalMoves.begin(), legalMoves.end(), to) == legalMoves.end()) {
+        throw boardgame::illegal_move_exception();
     }
     MoveHistoryState state(Move(from, to));
     if (toPiece) {
@@ -135,7 +135,7 @@ std::vector<boardgame::Location> boardgame::Board::getPieceLocationsFor(Player* 
     return locations;
 }
 
-void boardgame::Board::retract() {
+bool boardgame::Board::retract() {
     if (!moveHistory_.empty()) {
         MoveHistoryState state = moveHistory_.top();
         moveHistory_.pop();
@@ -146,6 +146,21 @@ void boardgame::Board::retract() {
             pieces_[state.move.to.y][state.move.to.x] = piece;
         } else {
             pieces_[state.move.to.y][state.move.to.x] = nullptr;
+        }
+        return true;
+    }
+    return false;
+}
+
+void boardgame::Board::printLegalMovesFor(Player* player) const {
+    for (auto piece : getPieceLocationsFor(player)) {
+        for (auto move : getLegalMovesFor(piece)) {
+            std::cout << (char)(piece.x + 'a')
+                      << getHeight() - piece.y
+                      << " "
+                      << (char)(move.x + 'a')
+                      << getHeight() - move.y
+                      << std::endl;
         }
     }
 }

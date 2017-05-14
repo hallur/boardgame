@@ -97,10 +97,11 @@ public:
     *   @param player   owner of the pieces we want Location of.
     */
     std::vector<Location> getPieceLocationsFor(Player* player) const;
+    void printLegalMovesFor(Player* player) const; // todo: document this function
     /*! \fn retract
     *   \brief retracts one game move backwards.
     */
-    void retract();
+    bool retract();
 
     /*! \fn Member operator<<(std::ostream &os, const Board &rhs) 
     *   \brief prints the board.

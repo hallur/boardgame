@@ -33,6 +33,9 @@ public:
     /*! \brief ~Game destructor
     */
     virtual ~Game();
+    
+    virtual Player* getPlayer1() const; // todo: document this function
+    virtual Player* getPlayer2() const; // todo: document this function
 
     /*! \fn playTurn
     *   \brief plays next turn
@@ -60,6 +63,10 @@ public:
     *   \brief retracts one move backwards.
     */
     void retract();
+    virtual void initialize(Player* player1, Player* player2); // todo: document this function
+    void printLegalMovesForCurrentPlayer() const; // todo: document this function
+    Board* getBoard() const; // todo: document this function
+    Player* getCurrentPlayer() const; // todo: document this function
 
 protected:
     Player* player1_; //!< Player one

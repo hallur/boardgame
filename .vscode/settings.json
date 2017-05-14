@@ -31,6 +31,7 @@
         "memory": "cpp",
         "ratio": "cpp",
         "thread": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "sstream": "cpp"
     }
 }
