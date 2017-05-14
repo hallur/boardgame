@@ -37,6 +37,7 @@ void boardgame::Game::retract() {
 
 void boardgame::Game::initialize(Player* player1, Player* player2) {
     board_->initialize(player1, player2);
+    currentPlayer_ = player1_;
 }
 
 void boardgame::Game::printLegalMovesForCurrentPlayer() const {

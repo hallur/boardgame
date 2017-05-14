@@ -80,6 +80,15 @@ void boardgame::GameConsole::move(const std::string& from, const std::string& to
             } catch (...) {
                 std::cout << "Yikes! Unknown error!" << std::endl;
             }
+
+            if (game_->getWinner()) {
+                if (game_->getWinner() != game_->getCurrentPlayer()) { // != operator because current player is switched after move above
+                    std::cout << "Player to move wins" << std::endl;
+                } else {
+                    std::cout << "Player to move loses" << std::endl;
+                }
+            }
+
         } else {
             std::cout << "Error: Invalid 'from' or 'to' parameter." << std::endl;
         }
