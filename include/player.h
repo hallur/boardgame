@@ -5,9 +5,6 @@
 *   \brief Contains base class for players in boardgames.
 */
 
-
-#include "structs.h"
-
 #include <string>
 
 namespace boardgame {
@@ -27,11 +24,16 @@ public:
     *   @param name String to identify player
     */
     explicit Player(std::string name);
-    /*! \brief Player destructor
+    /*! \brief ~Player destructor
     */
     virtual ~Player();
-    /*! \brief Player playTurn()
+
+    /*! \fn playTurn
+    *   \brief Player playTurn()
+    *
     *   Pure virtual, to be overwritten in derived classes such as player and computer.
+    *
+    *   @param board    an instance of the board so the computer can calculate a move.
     */
     virtual void playTurn(Board* board) = 0;
 protected:
