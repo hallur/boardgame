@@ -1,7 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-/*! \file board.h
+/*! \file /boardgame/include/board.h
 *   \brief Contains the board class for games.
 *   
 *   The Board is used to hold together all gamestate information,
@@ -21,7 +21,7 @@ namespace boardgame {
 *   
 *   The Board is the class used to hold together all gamestate information,
 *   where each peace is and interactions with the peaces. The class is pure virtual
-*   and derived classes must implement the \fn initialize funciton, because the Board
+*   and derived classes must implement the initialize funciton, because the Board
 *   has no idea some games might want their pieces set up on the board.
 */
 class Board {
@@ -59,7 +59,7 @@ public:
     */
     std::vector<Location> getLegalMovesFor(Location location) const;
 
-    /*! \fn initialize
+    /*! \fn virtual void boardgame::Board::initialize(Player *player1, Player *player2)=0
     *   \brief pure virtual function supposed to initialize the board
     *
     *   supposed to order the pieces on the board according to the game you are playing.
@@ -102,7 +102,8 @@ public:
     */
     void retract();
 
-    /* \brief prints the board.
+    /*! \fn Member operator<<(std::ostream &os, const Board &rhs) 
+    *   \brief prints the board.
     *   
     *   @param os   output stream.
     *   @param rhs  Board to be printed.
@@ -117,7 +118,13 @@ protected:
     std::stack<MoveHistoryState> moveHistory_; //!< move history, a history of all moves made, used when retracting
 };
 
-std::ostream& operator<<(std::ostream& os, const Board& rhs);
+/*! \fn Member operator<<(std::ostream &os, const Board &rhs) 
+*   \brief prints the board.
+*   
+*   @param os   output stream.
+*   @param rhs  Board to be printed.
+*/
+std::ostream& operator<<(std::ostream& os, const Board& rhs); //<! Member operator, prints the board.
 
 }
 

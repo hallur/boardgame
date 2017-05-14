@@ -34,7 +34,7 @@ public:
     */
     virtual ~Piece() = 0;
 
-    /*! \fn getMarger
+    /*! \fn getMarker
     *   \brief returns the marker used to represent a piece.
     *
     *   used when displaying a piece on the board so it can be identified.

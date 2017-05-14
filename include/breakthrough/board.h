@@ -1,7 +1,7 @@
 #ifndef BREAKTHROUGH_BOARD_H
 #define BREAKTHROUGH_BOARD_H
 
-/*! \file board.h
+/*! \file /boardgame/include/breakthrough/board.h
 *   \brief file wich holds the board for breakthrough game.
 *
 *   The board inherits from our base boardgame::Board class, and implements some
@@ -20,24 +20,24 @@ namespace breakthrough {
 */
 class Board : public boardgame::Board {
 public:
-    /*! \brief Board constructor
+    /*! \brief Board constructor.
     *
     *   @param player1  Player one.
-    *   @oaram player2  Player two.
+    *   @param player2  Player two.
     *   @param width    the width of the board.
     *   @param height   the height of the board.
     */
     explicit Board(Player* player1, Player* player2, int width, int height);
     /*! \brief Board copy-constructor
     *
-    *   @param Board    board to be copied.
+    *   @param rhs  board to be copied.
     */
-    explicit Board(const breakthrough::Board&);
+    explicit Board(const breakthrough::Board& rhs);
     /*! \brief ~Board destructor
     */
     virtual ~Board();
 
-    /*! \fn initialize
+    /*! \fn virtual void boardgame::breakthrough::Board::initialize(Player *player1, Player *player2)
     *   \brief initializes the board, with pieces for each player.
     *
     *   @param player1  Player one.

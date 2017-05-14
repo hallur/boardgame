@@ -1,7 +1,7 @@
 #ifndef MEGABREAKTHROUGH_BOARD_H
 #define MEGABREAKTHROUGH_BOARD_H
 
-/*! \file board.h
+/*! \file /boardgame/include/megabreakthrough/board.h
 *   \brief file wich holds the board for mega breakthrough game.
 *
 *   The board inherits from our boardgame::breakthrough::Board class, since it is mostly
@@ -23,7 +23,7 @@ public:
     /*! \brief Board constructor
     *
     *   @param player1  Player one.
-    *   @oaram player2  Player two.
+    *   @param player2  Player two.
     *   @param width    the width of the board.
     *   @param height   the height of the board.
     */
@@ -32,7 +32,7 @@ public:
     */
     virtual ~Board();
 
-    /*! \fn initialize
+    /*! \fn virtual void boardgame::megabreakthrough::Board::initialize(Player *player1, Player *player2)
     *   \brief initializes the board, with pieces for each player.
     *
     *   @param player1  Player one.
