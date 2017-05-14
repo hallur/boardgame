@@ -19,16 +19,21 @@ namespace boardgame {
 */
 class Random : public Computer {
 public:
-    /*! \brief Computer constructor
+    /*! \brief Random constructor
     *   
     *   @param name Name of the player
     */
     explicit Random(std::string name);
-    /*! 'brief Computer destructor
+    /*! \brief ~Random destructor
     */
     virtual ~Random();
-    /*! \brief Play Turn.
+
+    /*! \fn playTurn
+    *   \brief Play Turn.
+    *
     *   used when the computer plays a turn.
+    *
+    *   @param board    an instance of the board so the computer can calculate a move.
     */
     virtual void playTurn(Board* board);
 };
