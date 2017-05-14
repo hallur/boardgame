@@ -1,6 +1,10 @@
 #ifndef GAMECONSOLE_H
 #define GAMECONSOLE_H
 
+/*! \file /boardgame/include/gameconsole.h
+*   \brief Contains the class GameConsole
+*/
+
 #include "game.h"
 #include "player.h"
 
@@ -9,12 +13,33 @@
 
 namespace boardgame {
 
+/*! \class GameConsole
+*   \brief GameConsole handles user input and executes commands
+* 
+*   Class that takes commands from the user and calls the appropriate functions
+*/
 class GameConsole {
 public:
+    /*! \brief GameConsole constructor
+    *
+    *   Creates a new instance of a GameConsole
+    */
     explicit GameConsole();
+    /*! \brief ~GameConsole destructor
+    */
     virtual ~GameConsole();
 
+    /*! \fn getCommandFromUser
+    *
+    *   \brief Takes a string from the standard input and returns it
+    */
     std::string getCommandFromUser() const;
+    /*! \fn executeCommand()
+    *
+    * \brief Takes a command as a parameter and executes it
+    * 
+    * @param command The command to execute
+    */
     bool executeCommand(std::string command);
 private:
     void list() const;
