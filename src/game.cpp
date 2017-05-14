@@ -7,6 +7,14 @@ boardgame::Game::Game(boardgame::Player* player1, boardgame::Player* player2, in
 
 boardgame::Game::~Game() {}
 
+boardgame::Player* boardgame::Game::getPlayer1() const {
+    return player1_;
+}
+
+boardgame::Player* boardgame::Game::getPlayer2() const {
+    return player2_;
+}
+
 void boardgame::Game::playTurn() {
     currentPlayer_->playTurn(board_);
 }
@@ -22,5 +30,23 @@ void boardgame::Game::switchCurrentPlayer() {
 }
 
 void boardgame::Game::retract() {
-    board_->retract();
+    if (board_->retract()) {
+        switchCurrentPlayer();
+    }
+}
+
+void boardgame::Game::initialize(Player* player1, Player* player2) {
+    board_->initialize(player1, player2);
+}
+
+void boardgame::Game::printLegalMovesForCurrentPlayer() const {
+    board_->printLegalMovesFor(currentPlayer_);
+}
+
+boardgame::Board* boardgame::Game::getBoard() const {
+    return board_;
+}
+
+boardgame::Player* boardgame::Game::getCurrentPlayer() const {
+    return currentPlayer_;
 }

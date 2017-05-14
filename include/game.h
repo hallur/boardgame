@@ -26,6 +26,8 @@ public:
     /*! \brief game destructor
     */
     virtual ~Game();
+    virtual Player* getPlayer1() const; // todo: document this function
+    virtual Player* getPlayer2() const; // todo: document this function
     /*! \brief Play turn
     *
     *   ...
@@ -44,6 +46,10 @@ public:
     void display() const;
     void switchCurrentPlayer(); // document this function
     void retract();
+    virtual void initialize(Player* player1, Player* player2); // todo: document this function
+    void printLegalMovesForCurrentPlayer() const; // todo: document this function
+    Board* getBoard() const; // todo: document this function
+    Player* getCurrentPlayer() const; // todo: document this function
 
 protected:
     Player* player1_; //!< Player one

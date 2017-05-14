@@ -28,7 +28,8 @@ public:
     void movePiece(Location from, Location to, Player* player);
     int countPiecesFor(Player* player) const;
     std::vector<Location> getPieceLocationsFor(Player* player) const;
-    void retract();
+    bool retract();
+    void printLegalMovesFor(Player* player) const;
 
     friend std::ostream& operator<<(std::ostream& os, const Board& rhs);
 

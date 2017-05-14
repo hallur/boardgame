@@ -12,6 +12,7 @@
     // -Wconversion: Display conversion warnings
     "args": ["-std=c++11", "-g", "-o", "bin/main.exe", "-I", "include/", "-Wall", "-Wconversion",
     "main.cpp",
+    "src/gameconsole.cpp",
     "src/game.cpp",
         "src/foxandhound/game.cpp",
         "src/breakthrough/game.cpp",
