@@ -23,6 +23,14 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "cmath": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "array": "cpp",
+        "chrono": "cpp",
+        "ctime": "cpp",
+        "functional": "cpp",
+        "memory": "cpp",
+        "ratio": "cpp",
+        "thread": "cpp",
+        "tuple": "cpp"
     }
 }

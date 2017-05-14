@@ -29,6 +29,9 @@ int main(int argc, char **argv) {
         breakthrough.playTurn();
         breakthrough.switchCurrentPlayer();
     } while (!breakthrough.getWinner());
-
+    breakthrough.display();
+    std::cout << "We have a winner!" << std::endl;
+    std::string str;
+    std::cin >> str;
     return 0;
 }

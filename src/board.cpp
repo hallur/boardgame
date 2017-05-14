@@ -82,6 +82,7 @@ std::vector<boardgame::Location> boardgame::Board::getLegalMovesFor(boardgame::L
         std::vector<boardgame::MoveRule> moveRules = piece->getMoveRules();
         for (auto moveRule : moveRules) {
             boardgame::Location tmpLocation = location;
+            int continuousLenght = moveRule.contLength;
             do {
                 tmpLocation.x += moveRule.xDiff;
                 tmpLocation.y += moveRule.yDiff;
@@ -99,7 +100,8 @@ std::vector<boardgame::Location> boardgame::Board::getLegalMovesFor(boardgame::L
                     }
                     break;
                 }
-            } while (moveRule.continuous);
+                continuousLenght--;
+            } while (moveRule.continuous && continuousLenght != 0);
         }   
     }
     return legalMoves;
