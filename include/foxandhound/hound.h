@@ -14,20 +14,20 @@ namespace foxandhound {
 
 
 /*! \class Hound
-*   \breif Hound class for the pwan Piece, inherits the boardgame::Piece.
+*   \brief Hound class for the pwan Piece, inherits the boardgame::Piece.
 *
 *   Piece used in the fox and hounds game.
 */
 class Hound : public boardgame::Piece {
 public:
-    /*! \breif Hound constructor
+    /*! \brief Hound constructor
     *
     *   Creates a hound.
     *
     *   @param player Owner of the piece
     */
     explicit Hound(boardgame::Player* player);
-    /*! \breif ~Hound destructor
+    /*! \brief ~Hound destructor
     */
     virtual ~Hound();
 };

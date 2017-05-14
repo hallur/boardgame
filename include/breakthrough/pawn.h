@@ -13,13 +13,13 @@ namespace boardgame {
 namespace breakthrough {
 
 /*! \class Pawn
-*   \breif Pawn class for the pawn Piece, inherits the boardgame::Piece.
+*   \brief Pawn class for the pawn Piece, inherits the boardgame::Piece.
 *
 *   Piece used in the breakthrough game.
 */
 class Pawn : public boardgame::Piece {
 public:
-    /*! \breif Pawn constructor
+    /*! \brief Pawn constructor
     *
     *   Creates a pawn.
     *
@@ -28,7 +28,7 @@ public:
     *   @param marker   the marker for the pawn p by default
     */
     explicit Pawn(boardgame::Player* player, bool top, char marker = 'p');
-    /*! \breif ~Pawn destructor
+    /*! \brief ~Pawn destructor
     */
     virtual ~Pawn();
 };

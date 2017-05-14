@@ -43,13 +43,13 @@ public:
     */
     virtual void initialize(Player* player1, Player* player2);
     /*! \fn getFoxLocation
-    *   \breif gets the location of the fox.
+    *   \brief gets the location of the fox.
     *
     *   returns a Location of the fox.
     */
     Location getFoxLocation() const;
     /*! \fn getHoundLocation
-    *   \breif gets the location of the hounds.
+    *   \brief gets the location of the hounds.
     *
     *   returns a Location array of the hounds.
     */

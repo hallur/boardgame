@@ -27,12 +27,12 @@ public:
     *   @param height   the height of the board, default 8.
     */
     explicit Game(boardgame::Player* player1, boardgame::Player* player2, int width = 8, int height = 8);
-    /*! \breif ~Game destructor
+    /*! \brief ~Game destructor
     */
     virtual ~Game();
 
     /*! \fn getWinner
-    *   \breif returns the winner of the game, (nullptr gets returned if there is no winner yet).
+    *   \brief returns the winner of the game, (nullptr gets returned if there is no winner yet).
     */
     virtual boardgame::Player* getWinner() const;
 };

@@ -13,7 +13,7 @@ namespace boardgame {
 namespace megabreakthrough {
 
 /*! \class MegaPawn
-*   \breif MegaPawn class for the mega pawn Piece, inherits the boardgame::breakthrough::Pawn.
+*   \brief MegaPawn class for the mega pawn Piece, inherits the boardgame::breakthrough::Pawn.
 *
 *   Piece used in the breakthrough game. We inherit boardgame::breakthrough::Pawn becuase Pawn and
 *   MegaPawn are almost the same the only difference is that The MegaPawn has one more move, (and 
@@ -21,7 +21,7 @@ namespace megabreakthrough {
 */
 class MegaPawn : public boardgame::breakthrough::Pawn {
 public:
-    /*! \breif MegaPawn constructor
+    /*! \brief MegaPawn constructor
     *
     *   Creates a mega pawn.
     *
@@ -29,7 +29,7 @@ public:
     *   @param player   Owner of the piece
     */
     explicit MegaPawn(boardgame::Player* player, bool top);
-    /*! \breif ~MegaPawn destructor
+    /*! \brief ~MegaPawn destructor
     */
     virtual ~MegaPawn();
 };

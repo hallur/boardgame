@@ -2,7 +2,7 @@
 #define HUMAN_H
 
 /*! \file human.h
-*   \breif Comntains Human player
+*   \brief Comntains Human player
 *
 *   Human player derived from the Player class
 */
