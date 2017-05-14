@@ -2,7 +2,7 @@
 #define HUMAN_H
 
 /*! \file human.h
-*   \breif Comntains Human player
+*   \brief Comntains Human player
 *
 *   Human player derived from the Player class
 */
@@ -28,8 +28,13 @@ public:
     /*! \brief Human destructor
     */
     virtual ~Human();
-    /*! \brief Play Turn.
+
+    /*! \fn playTurn
+    *   \brief Play Turn.
+    *
     *   used when playing a turn.
+    *
+    *   @param board    an instance of the board so the computer can calculate a move.
     */
     virtual void playTurn(Board* board);
 };

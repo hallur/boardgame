@@ -24,11 +24,16 @@ public:
     *   @param name Name of the player
     */
     explicit Easy(std::string name);
-    /*! 'brief Computer destructor
+    /*! \brief Easy destructor
     */
     virtual ~Easy();
-    /*! \brief Play Turn.
+
+    /*! \fn playTurn
+    *   \brief Play Turn.
+    *
     *   used when the computer plays a turn.
+    *
+    *   @param board    an instance of the board so the computer can calculate a move.
     */
     virtual void playTurn(Board* board);
 };

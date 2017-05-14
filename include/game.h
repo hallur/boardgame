@@ -2,7 +2,7 @@
 #define GAME_H
 
 /*! \file game.h
-*   \brief contains base class for games
+*   \brief contains base class Game used for games
 */
 
 #include "structs.h"
@@ -21,30 +21,47 @@ namespace boardgame {
 */
 class Game {
 public:
-    // TODO
+    /*! \brief Game constructor
+    *
+    *   creates a new instance of a game.
+    *
+    *   @param player1 player one.
+    *   @param player2 player two.
+    *   @param maxNumberOfMoves maximum number of moves the game can have (after that if there is no winner the game is a tie.) default -1 (infinite number of moves).
+    */
     explicit Game(Player* player1, Player* player2, int maxNumberOfMoves = -1);
-    /*! \brief game destructor
+    /*! \brief ~Game destructor
     */
     virtual ~Game();
+    
     virtual Player* getPlayer1() const; // todo: document this function
     virtual Player* getPlayer2() const; // todo: document this function
-    /*! \brief Play turn
-    *
-    *   ...
+
+    /*! \fn playTurn
+    *   \brief plays next turn
+    *   
+    *   makes the player who is suposed to make a move play.
     */
     void playTurn();
-    /*! \brief Get winner
+    /*! \fn getWinner
+    *   \brief gets winner
     *
-    *   checks if there is a winner, if there is one return the winner if ther in no winner yet returns nullPtr;
-    /   if there is a tie TODO!
+    *   checks if there is a winner, if there is one return the winner if ther in no winner yet returns nullPtr.
     */
     virtual Player* getWinner() const = 0;
-    /*! \brief Pring board
+    /*! \fn display
+    *   \brief Print board
     *
     *   Prints the board in the current state.
     */
     void display() const;
-    void switchCurrentPlayer(); // document this function
+    /* \fn swithcCurrentPlayer
+    *   \brief changes currentPlayer
+    */
+    void switchCurrentPlayer();
+    /* \fn retract
+    *   \brief retracts one move backwards.
+    */
     void retract();
     virtual void initialize(Player* player1, Player* player2); // todo: document this function
     void printLegalMovesForCurrentPlayer() const; // todo: document this function
