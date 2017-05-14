@@ -80,7 +80,7 @@ struct MoveHistoryState {
 };
 
 /*! \struct MoveRule
-*   \breif Rule about how a Piece can move.
+*   \brief Rule about how a Piece can move.
 *
 *   used to define one way how a peace can move.
 */
@@ -93,7 +93,7 @@ struct MoveRule {
     int contLength; //!< if the Piece should not be able to move continuosly forever (only move 5 steps forward...) if < 1 no limit
     bool firstMove; //!< if the Move is only available when the Piece hasn't been moved before.
     int moved; //!< holds how may times a piece has been moved
-    /* \breif MoveRule constructor
+    /* \brief MoveRule constructor
     *
     *   creates a new move rule and sets all parameters that are defined, if they are not defined they will be set to their defaults.
     *

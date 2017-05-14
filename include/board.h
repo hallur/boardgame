@@ -98,11 +98,11 @@ public:
     */
     std::vector<Location> getPieceLocationsFor(Player* player) const;
     /*! \fn retract
-    *   \breif retracts one game move backwards.
+    *   \brief retracts one game move backwards.
     */
     void retract();
 
-    /* \breif prints the board.
+    /* \brief prints the board.
     *   
     *   @param os   output stream.
     *   @param rhs  Board to be printed.

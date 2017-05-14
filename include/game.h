@@ -53,11 +53,11 @@ public:
     */
     void display() const;
     /* \fn swithcCurrentPlayer
-    *   \breif changes currentPlayer
+    *   \brief changes currentPlayer
     */
     void switchCurrentPlayer();
     /* \fn retract
-    *   \breif retracts one move backwards.
+    *   \brief retracts one move backwards.
     */
     void retract();
 
