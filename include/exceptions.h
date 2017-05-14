@@ -18,7 +18,7 @@ namespace boardgame {
 */
 class boardgame_exception : public std::exception {
 public: 
-    virtual const char* what() const throw() = 0; //!< pure virtual function that will be used for custom exceptions
+    virtual const char* what() const throw() = 0; //!< pure virtual function that will implemented in custom exceptions
 };
 
 /*! \class illegal_move_exception
@@ -33,7 +33,11 @@ public:
     }
 };
 
-//todo: document
+/*! \class illegal_board_dimentions_exception
+*   \brief Illegal board dimentions exception derived from boardgame exception
+*
+*   thrown when trying to create a board of illegal size.
+*/
 class illegal_board_dimentions_exception : public boardgame_exception {
 public:
     virtual const char* what() const throw() {
