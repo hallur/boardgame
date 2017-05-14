@@ -29,7 +29,8 @@ public:
     */
     virtual ~Human();
 
-    /*! \brief Play Turn.
+    /*! \fn playTurn
+    *   \brief Play Turn.
     *
     *   used when playing a turn.
     *

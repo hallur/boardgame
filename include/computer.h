@@ -28,7 +28,8 @@ public:
     /*! \brief ~Computer destructor
     */
     virtual ~Computer();
-    /*! \brief Play Turn.
+    /*! \fn playTurn
+    *   \brief Play Turn.
     *
     *   used when the computer plays a turn.
     *
