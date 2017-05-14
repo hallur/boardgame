@@ -23,7 +23,7 @@ public:
     /*! \brief Board constructor
     *
     *   @param player1  Player one.
-    *   @oaram player2  Player twho.
+    *   @oaram player2  Player two.
     *   @param width    the width of the board.
     *   @param height   the height of the board.
     */
