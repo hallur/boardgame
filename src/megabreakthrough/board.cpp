@@ -4,9 +4,9 @@
 #include "exceptions.h"
 
 boardgame::megabreakthrough::Board::Board(boardgame::Player* player1, boardgame::Player* player2, int width, int height) : boardgame::breakthrough::Board(player1, player2, width, height) {
-    /*if (height < 4 || width < 1) {
+    if (height < 4 || width < 1) {
         throw illegal_board_dimentions_exception();
-    }*/
+    }
     initialize(player1, player2);
 }
 
