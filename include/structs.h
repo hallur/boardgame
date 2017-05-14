@@ -45,7 +45,7 @@ struct Move {
     *   Creates a move with two default locations.
     */
     explicit Move() : Move(Location(), Location()) {};
-    /* \brief Move constructor that takes locations
+    /*! \brief Move constructor that takes locations
     *
     *   creates a new move with the two locations provided.
     *
@@ -69,7 +69,7 @@ struct MoveHistoryState {
     *   with default move and kill being false.
     */
     explicit MoveHistoryState() : MoveHistoryState(Move()) {}
-    /* \brief MoveHistoryState constructor with parameters.
+    /*! \brief MoveHistoryState constructor with parameters.
     *
     *   Sets the move to given move and kill if kill is given else it is set to false.
     *
@@ -93,7 +93,7 @@ struct MoveRule {
     int contLength; //!< if the Piece should not be able to move continuosly forever (only move 5 steps forward...) if < 1 no limit
     bool firstMove; //!< if the Move is only available when the Piece hasn't been moved before.
     int moved; //!< holds how may times a piece has been moved
-    /* \brief MoveRule constructor
+    /*! \brief MoveRule constructor
     *
     *   creates a new move rule and sets all parameters that are defined, if they are not defined they will be set to their defaults.
     *
@@ -102,7 +102,7 @@ struct MoveRule {
     *   @param continuous       if the Piece can move continuoisly. Default false.
     *   @param kill             if the Piece can kill with the current move. Default false.
     *   @param friendlyFire     if the Pice can kill other Pieces with the same owener.
-    *   @param contLengt        the lenght of the continuous movement. Default -1 (infinite).
+    *   @param contLength       the lenght of the continuous movement. Default -1 (infinite).
     *   @param firstMove        if the move is only performable as a first move. 
     */
     explicit MoveRule(const int& xDiff = 0, const int& yDiff = 0, const bool& continuous = false, const bool& kill = false, const bool& friendlyFire = false, const int& contLength = -1, const bool& firstMove = false) :

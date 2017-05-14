@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-/*! \file game.h
+/*! \file /boardgame/include/game.h
 *   \brief contains base class Game used for games
 */
 
@@ -43,7 +43,7 @@ public:
     *   makes the player who is suposed to make a move play.
     */
     void playTurn();
-    /*! \fn getWinner
+    /*! \fn virtual Player * boardgame::Game::getWinner() const =0
     *   \brief gets winner
     *
     *   checks if there is a winner, if there is one return the winner if ther in no winner yet returns nullPtr.
@@ -55,11 +55,11 @@ public:
     *   Prints the board in the current state.
     */
     void display() const;
-    /* \fn swithcCurrentPlayer
+    /*! \fn switchCurrentPlayer
     *   \brief changes currentPlayer
     */
     void switchCurrentPlayer();
-    /* \fn retract
+    /*! \fn retract
     *   \brief retracts one move backwards.
     */
     void retract();

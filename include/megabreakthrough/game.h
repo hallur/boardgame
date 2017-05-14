@@ -1,7 +1,7 @@
 #ifndef MEGABREAKTHROUGH_GAME_H
 #define MEGABREAKTHROUGH_GAME_H
 
-/*! \file game.h
+/*! \file /boardgame/include/megabreakthrough/game.h
 *   \brief file wich holds the game class for mega breakthrough game.
 *
 *   The game inherits from our base boardgame::Game class.
@@ -22,7 +22,7 @@ public:
     /*! \brief Game constructor
     *
     *   @param player1  Player one.
-    *   @oaram player2  Player two.
+    *   @param player2  Player two.
     *   @param width    the width of the board, default 8.
     *   @param height   the height of the board, default 8.
     */
@@ -31,7 +31,7 @@ public:
     */
     virtual ~Game();
 
-    /*! \fn getWinner
+    /*! \fn virtual boardgame::Player * boardgame::megabreakthrough::Game::getWinner() const
     *   \brief returns the winner of the game, (nullptr gets returned if there is no winner yet).
     */
     virtual boardgame::Player* getWinner() const;
