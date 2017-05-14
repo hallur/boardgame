@@ -60,7 +60,7 @@ void boardgame::GameConsole::legal() const {
 }
 
 void boardgame::GameConsole::move(const std::string& from, const std::string& to) const {
-    /*if (game_) {
+    if (game_) {
         if (from.length() == 2 && to.length() == 2) {
             boardgame::Location fromLoc;
             fromLoc.x = static_cast<int>(from[0]) - 97;
@@ -85,7 +85,7 @@ void boardgame::GameConsole::move(const std::string& from, const std::string& to
         }
     } else {
         std::cout << "Unable to move; there is no active game." << std::endl;
-    }*/
+    }
 }
 
 void boardgame::GameConsole::retract() const {
@@ -105,19 +105,19 @@ void boardgame::GameConsole::display() const {
 }
 
 void boardgame::GameConsole::evaluate() const {
-    // todo: implement this function
+    std::cout << "This command is not yet available." << std::endl;
 }
 
 void boardgame::GameConsole::go() const {
-    // todo: implement this function
+    std::cout << "This command is not yet available." << std::endl;
 }
 
 void boardgame::GameConsole::level(std::string difficulty) const {
-    // todo: implement this function
+    std::cout << "This command is not yet available." << std::endl;
 }
 
 void boardgame::GameConsole::debug() const {
-    // todo: implement this function
+    std::cout << "This command is not yet available." << std::endl;
 }
 
 std::string boardgame::GameConsole::getCommandFromUser() const {
