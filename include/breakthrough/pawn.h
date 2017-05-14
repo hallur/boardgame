@@ -13,7 +13,7 @@ namespace boardgame {
 namespace breakthrough {
 
 /*! \class Pawn
-*   \breif Pawn class for the pwan Piece, inherits the boardgame::Piece.
+*   \breif Pawn class for the pawn Piece, inherits the boardgame::Piece.
 *
 *   Piece used in the breakthrough game.
 */
